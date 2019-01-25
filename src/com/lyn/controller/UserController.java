@@ -29,7 +29,7 @@ public class UserController {
 	@Resource(name="userService2")
 	private UserService userService2;
 	
-	//≤‚ ‘URL£∫http://localhost:8080/sas1.1/user/addUser.do
+	// ≤‚ ‘URL£∫http://localhost:8080/sas1.1/user/addUser.do
 	@ResponseBody
 	@RequestMapping(method = RequestMethod.GET, value = "addUser")
 	public String addUser(){

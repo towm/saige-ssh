@@ -56,7 +56,7 @@
      
     <!-- 事务的传播特性 -->
     <aop:config>  
-        <aop:advisor pointcut="execution(* com.lyn.*.service.*.*(..))" advice-ref="txAdvice" />  
+        <aop:advisor pointcut="execution(* com.lyn.service.*.*(..))" advice-ref="txAdvice" />  
 	</aop:config>
 	<tx:advice id="txAdvice" transaction-manager="transactionManager">
 		<tx:attributes>

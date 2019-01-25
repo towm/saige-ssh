@@ -9,8 +9,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
     <title>back_front</title>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-    <jsp:include page="../common/jsp/bootstrap-css.jsp"/> 
-    <jsp:include page="../common/jsp/bootstrap-js.jsp"/>
 
    <script type="text/javascript">
     function bsubmit(){
@@ -43,11 +41,5 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <!-- <button type="button" onclick="bsubmit();">提交</button>-->
     </form>
 
-  <jsp:include page="../common/jsp/sui-js.jsp"/>
   </body>
 </html>
---------------------- 
-作者：ANONYM_SKWG 
-来源：CSDN 
-原文：https://blog.csdn.net/xianSky2015/article/details/79050772 
-版权声明：本文为博主原创文章，转载请附上博文链接！

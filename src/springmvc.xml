@@ -8,8 +8,8 @@
         http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
     
     <!-- 配置自动扫描的包 -->  
+    <context:component-scan base-package="com.lyn.*" />
     <context:component-scan base-package="com.lyn.*.*" />
-    <context:component-scan base-package="com.lyn.*.*.*" />
     
      <!--   Spring 是这样处理AOP代理的问题的，它有两套动态代理的实现，一个是JDK方法的实现，一个就是cglib，proxy-target-class -->
     <aop:aspectj-autoproxy proxy-target-class="true"/>
