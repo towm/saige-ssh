@@ -21,15 +21,15 @@ public class TestSSH{
 	@Test
 	public void testDataSource(){
 		ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
-		System.out.println("Êı¾İÔ´£º"+ctx);
+		System.out.println("åº”ç”¨ä¸Šä¸‹æ–‡-----"+ctx+"----");
 		DataSource dataSource = ctx.getBean(DataSource.class);
 		try {
-			System.out.println("´ò¿ªÊı¾İÁ¬½Ó£º"+dataSource.getConnection().toString());
+			System.out.println("æ•°æ®æºï¼š-----"+dataSource.getConnection().toString()+"-----");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		SessionFactory sessionFactory = ctx.getBean(SessionFactory.class);
-		System.out.println("sessionFactory:"+sessionFactory);
+		System.out.println("sessionFactory:____"+sessionFactory+"_______sessionFactory");
 		Session session = sessionFactory.openSession();
 		session.close();
 	}

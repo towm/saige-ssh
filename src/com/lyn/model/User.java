@@ -20,14 +20,14 @@ public class User{
 	@Column(name="U_NAME")
 	private String name;
 
-	//ÒÔ×Ö¶ÎÃû'U_PASSWORD'Ó³Éäµ½S_USER±íÖĞ
+	////ä»¥å­—æ®µå'password'æ˜ å°„åˆ°S_USERè¡¨ä¸­
 	@Column(name="U_PASSWORD")
 	private String password;
 	
-	//Ä¬ÈÏÒÔ×Ö¶ÎÃû'sex'Ó³Éäµ½S_USER±íÖĞ
+	////é»˜è®¤ä»¥å­—æ®µå'sex'æ˜ å°„åˆ°S_USERè¡¨ä¸­
 	private String sex;
 	
-	//²»´´½¨µ½Êı¾İ¿â
+	////ä¸åˆ›å»ºåˆ°æ•°æ®åº“
 	@Transient
 	private String email;
 	
