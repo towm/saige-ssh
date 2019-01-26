@@ -9,6 +9,7 @@
     
     <!-- 配置自动扫描的包 -->  
     <context:component-scan base-package="com.lyn.*" />
+    <context:component-scan base-package="com.lyn.controller.*" />
     <context:component-scan base-package="com.lyn.*.*" />
     
      <!--   Spring 是这样处理AOP代理的问题的，它有两套动态代理的实现，一个是JDK方法的实现，一个就是cglib，proxy-target-class -->
@@ -22,7 +23,7 @@
     </bean>  
      <!--   <mvc:default-servlet-handler />  配置静态资源：default-servlet-handler将在SpringMVC上下文中定义DefaultServletHttpRequestHandler,   
         它会对进入DispatcherServlet的请求进行帅选，如果发现是没有经过映射的请求，就将该请求交由WEB应用服务器默认的 Servlet处理。如果不是静态资源的请求，才由DispatcherServlet继续处理。 -->  
-  
+  <mvc:default-servlet-handler />
     <!-- 配置开启注解 -->  
     <mvc:annotation-driven/> 
 </beans> 

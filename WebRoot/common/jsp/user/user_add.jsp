@@ -6,40 +6,71 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!DOCTYPE html>
 <html>
   <head>
-
+	 <base href="<%=basePath%>">
     <title>back_front</title>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+   <!--  <script type="text/javascript" src="js/jquery-1.6.4.min.js"></script>-->
+   <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript">
+        $(document).ready(function(){
+            $("#b01").click(function(){
+                 $.ajax({    
+                    type:'post',        
+                    url:'/url.do',    
+                    data:$("#form").serialize(),    
+                    cache:false,    
+                    dataType:'json',    
+                    success:function(data){   
+                        alert("请求成功");
+                    }    
+                });    
+            });
+        });
+    </script>-
 
-   <script type="text/javascript">
-    function bsubmit(){
-        var form = document.forms[0];
-        form.action = "<%=basePath%>test/form1.do";
-        form.method = "post";
-        form.submit();
-    }
-   //若是form表单的基础信息都填写完成，想直接提交，那么可以使用:
-   // js: document.getElementById("myform").submit();
-   //jquery: $("#myform").submit();
-
-   </script>
-  </head>
-
-  <body>
-    <form role="form" id="myform" name="myform" method="post" action="<%=basePath%>test/form1_1.do">
-        <div class="form-group">
-            <label for="name">名称</label> <input type="text" class="form-control"
-                id="name" name="name" placeholder="请输入名称">
+</head>
+<body>
+    <form id="form"  method="post">
+    	<div class="form-group">
+            <label for="name">姓名</label> 
+            <input type="text" class="form-control" id="name" name="name" placeholder="请输入姓名">
         </div>
+        
+        <div class="form-group">
+            <label for="name">password</label> 
+            <input type="text" class="form-control" id="password" name="password" placeholder="请输入密码">
+        </div>
+        
+        <div class="form-group">
+            <label for="name">sex</label> 
+            <input type="text" class="form-control" id="sex" name="sex" placeholder="请输入性别">
+        </div>
+        
+        <div class="form-group">
+            <label for="name">email</label> 
+            <input type="text" class="form-control" id="email" name="email" placeholder="请输入email">
+        </div>
+        <div class="form-group">
+            <label for="id">id</label> 
+            <input type="text" class="form-control" id="email" name="id" placeholder="请输入id">
+        </div>
+        
         <div class="form-group">
             <p class="help-block">这里是块级帮助文本的实例。</p>
         </div>
+        
         <div class="checkbox">
             <label> <input type="checkbox" name="check"> 请打勾 </label>
         </div>
-        <input type="button" value="提交" onclick="bsubmit();"/>  //通过调用bsubmit()js方法提交表单。
-        <!-- <a href="javascript:void(0);" onclick="bsubmit();" >提交</a>-->
-        <!-- <button type="button" onclick="bsubmit();">提交</button>-->
+        
+     
     </form>
+ <button id="b01" style="text-decoration: none;">使用ajax提交表单数据</button>
+ <div id="div1"><h2>使用 jQuery AJAX 修改文本内容</h2></div>
+<button>获取其他内容</button>
+ 
+</body>
 
-  </body>
+
+  
 </html>

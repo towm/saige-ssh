@@ -38,6 +38,9 @@ public class User{
 		this.sex=sex;
 		this.email=email;
 	}
+	public User(){
+		
+	}
 	
 	public String getSex() {
 		return sex;

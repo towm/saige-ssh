@@ -17,8 +17,8 @@ import com.lyn.service.UserService;
 @RequestMapping("/user")
 public class UserController {
 	
-	//对UserService接口，当只有一个实现类继承接口时，可以使用@Autowired，接口实现类@Service注解即可。
-	//多个的时候使用@Resource(name="userService2")来指定调那个子接口，接口实现类@Service("userService2")注解即可。
+	//露脭UserService陆脫驴脷拢卢碌卤脰禄脫脨脪禄赂枚脢碌脧脰脌脿录脤鲁脨陆脫驴脷脢卤拢卢驴脡脪脭脢鹿脫脙@Autowired拢卢陆脫驴脷脢碌脧脰脌脿@Service脳垄陆芒录麓驴脡隆拢
+	//露脿赂枚碌脛脢卤潞貌脢鹿脫脙@Resource(name="userService2")脌麓脰赂露篓碌梅脛脟赂枚脳脫陆脫驴脷拢卢陆脫驴脷脢碌脧脰脌脿@Service("userService2")脳垄陆芒录麓驴脡隆拢
 	//@Autowired
 	//private UserService userService;
 	
@@ -29,16 +29,26 @@ public class UserController {
 	@Resource(name="userService2")
 	private UserService userService2;
 	
-	// 测试URL：http://localhost:8080/sas1.1/user/addUser.do
+	// http://localhost:8080/lyn-ssh/user/addUser.do
 	@ResponseBody
 	@RequestMapping(method = RequestMethod.GET, value = "addUser")
 	public String addUser(){
 		System.out.println("**********findUser***********");
 		JSONObject obj = new JSONObject();
-		User user = new User("user", "123456", "保密", "1127447798@qq.com");
+		User user = new User("user", "123456", "ba淇濆瘑", "1127447798@qq.com");
 		userService.addUser(user);
-		User user2 = new User("user2", "123456", "保密", "1127447798@qq.com");
+		User user2 = new User("user2", "123456", "卤拢脙脺", "1127447798@qq.com");
 		userService2.addUser(user2);
+		
+	
 		return obj.toString();
 	}
+	
+	@ResponseBody
+	@RequestMapping(method = RequestMethod.POST, value = "url")  
+    public String addUser(User user){
+		System.out.println(user.getEmail());
+	
+        return "userlist";
+    }
 }
