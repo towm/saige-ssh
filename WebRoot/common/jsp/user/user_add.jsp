@@ -11,26 +11,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
    <!--  <script type="text/javascript" src="js/jquery-1.6.4.min.js"></script>-->
    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
-<script type="text/javascript">
-        $(document).ready(function(){
-            $("#b01").click(function(){
-                 $.ajax({    
-                    type:'post',        
-                    url:'/url.do',    
-                    data:$("#form").serialize(),    
-                    cache:false,    
-                    dataType:'json',    
-                    success:function(data){   
-                        alert("请求成功");
-                    }    
-                });    
-            });
-        });
-    </script>-
+
 
 </head>
 <body>
-    <form id="form"  method="post">
+    <form id="form" action="jxq-ssh/user/url.do" method="post">
     	<div class="form-group">
             <label for="name">姓名</label> 
             <input type="text" class="form-control" id="name" name="name" placeholder="请输入姓名">
@@ -62,7 +47,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <div class="checkbox">
             <label> <input type="checkbox" name="check"> 请打勾 </label>
         </div>
-        
+        <button type="summit">aa</button>
      
     </form>
  <button id="b01" style="text-decoration: none;">使用ajax提交表单数据</button>
