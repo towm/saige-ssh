@@ -24,7 +24,7 @@ public class ProductDaoImpl implements ProductDao{
 	@Autowired
 	private SessionFactory sessionFactory;
 	
-	public void add(Product product) {
+	public void addProduct(Product product) {
 		this.sessionFactory.getCurrentSession().save(product);
 	}
 	

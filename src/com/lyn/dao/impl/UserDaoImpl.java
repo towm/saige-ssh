@@ -1,6 +1,9 @@
 package com.lyn.dao.impl;
 
 
+import java.util.List;
+
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -27,5 +30,10 @@ public class UserDaoImpl implements UserDao{
 		sessionFactory.getCurrentSession().update(user);
 	}
 	
-	
+
+	@SuppressWarnings("unchecked")
+	public List<User> getUesrList(){
+		Session s = this.sessionFactory.getCurrentSession();
+		return (List<User>) s.createSQLQuery("select * FROM _user;").addEntity(User.class).list();
+	}
 }

@@ -1,5 +1,7 @@
 package com.lyn.controller;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import net.sf.json.JSONObject;
@@ -31,25 +33,43 @@ public class UserController {
 	
 	// http://localhost:8080/lyn-ssh/user/addUser.do
 	@ResponseBody
-	@RequestMapping(method = RequestMethod.GET, value = "addUser")
+	@RequestMapping(method = RequestMethod.GET, value = "validUser")
 	public String addUser(){
 		System.out.println("**********findUser***********");
 		JSONObject obj = new JSONObject();
-		User user2 = new User("user2", "123456", "±£ÃÜ", "1127447798@qq.com");
-		userService.addUser(user2);
+	
 		
 	
 		return obj.toString();
 	}
 	
 	@ResponseBody
-	@RequestMapping(method = RequestMethod.POST, value = "url")  
+	@RequestMapping(method = RequestMethod.POST, value = "signUp")  
     public ModelAndView addUser(User user){
-		ModelAndView model = new ModelAndView("forward:/index2.jsp");
-		System.out.println(user.getEmail());
+		ModelAndView model = new ModelAndView("forward:/common/jsp/common/sign_up_succ.jsp");
+		this.userService.addUser(user);
 	    model.addObject("user",user);
         return model;
     }
+	
+	@ResponseBody
+	@RequestMapping(method = RequestMethod.POST, value = "addUser")  
+    public ModelAndView addUser2(User user){
+		ModelAndView model = new ModelAndView("forward:/jsp/user/user_manage.jsp");
+		this.userService.addUser(user);
+	    model.addObject("user",user);
+        return model;
+    }
+	
+	@ResponseBody
+	@RequestMapping(method = RequestMethod.GET, value = "userList")  
+    public ModelAndView userList(User user){
+		ModelAndView model = new ModelAndView("forward:/jsp/user/user_manage.jsp");
+		List<User> users = userService.getUesrList();
+	    model.addObject("users",users);
+        return model;
+    }
+	
 	
 	@RequestMapping(method = RequestMethod.GET)
 	   public String printHello(ModelMap model) {

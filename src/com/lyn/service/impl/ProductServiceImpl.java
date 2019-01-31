@@ -23,9 +23,9 @@ public class ProductServiceImpl {
 	@Autowired
 	private ProductDao productDao;
 	
-	public void add(Product product) {
+	public void addProduct(Product product) {
 		System.out.println("**********ProductService.add***********");
-		this.productDao.add(product);
+		this.productDao.addProduct(product);
 	}
 	
 	public Product findById(int id) {

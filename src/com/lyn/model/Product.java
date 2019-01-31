@@ -32,6 +32,11 @@ public class Product {
     
 	
 	
+	
+	public Product() {
+		
+	}
+	
 	/**
 	 * @param id
 	 * @param name

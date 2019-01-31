@@ -15,7 +15,7 @@ import java.util.List;
 
 public interface ProductService {
 	
-	public void add(Product product);
+	public void addProduct(Product product);
 	
 	public Product findById(int id);
 	

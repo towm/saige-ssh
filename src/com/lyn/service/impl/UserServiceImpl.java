@@ -1,5 +1,7 @@
 package com.lyn.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,6 +27,9 @@ public class UserServiceImpl implements UserService{
 	public void upadteUser(User user) {
 		userDao.upadteUser(user);		
 	}
-
+    
+	public List<User> getUesrList(){
+		return this.userDao.getUesrList();
+	}
 
 }

@@ -16,7 +16,7 @@ import com.lyn.model.Product;
 
 public interface ProductDao{
 	
-	public void add(Product product) ;
+	public void addProduct(Product product) ;
 	
 	public Product findById(int id) ;
 	

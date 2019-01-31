@@ -1,5 +1,7 @@
 package com.lyn.service;
 
+import java.util.List;
+
 import com.lyn.model.User;
 
 public interface UserService {
@@ -9,4 +11,6 @@ public interface UserService {
 	public User findUser(long id);
 	
 	public void upadteUser(User user);
+	
+	public List<User> getUesrList();
 }
