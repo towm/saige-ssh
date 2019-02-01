@@ -12,5 +12,7 @@ public interface UserService {
 	
 	public void upadteUser(User user);
 	
+	public void delUser(User user);
+	
 	public List<User> getUesrList();
 }

@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -25,9 +26,23 @@ public class UserDaoImpl implements UserDao{
 		
 		return (User)sessionFactory.getCurrentSession().get(User.class, id);
 	}
-
+	
+	public void delUser(User user) {
+		sessionFactory.getCurrentSession().delete(user);
+	}
+	
 	public void upadteUser(User user) {
-		sessionFactory.getCurrentSession().update(user);
+		  Session session = sessionFactory.openSession();
+		    Transaction tx = session.beginTransaction();
+
+		    //update/insert operations here
+
+		    session.update(user);
+
+		    tx.commit();
+
+		    session.close();
+		
 	}
 	
 

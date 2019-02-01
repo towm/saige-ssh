@@ -34,7 +34,11 @@ public class UserController {
 	// http://localhost:8080/lyn-ssh/user/addUser.do
 	@ResponseBody
 	@RequestMapping(method = RequestMethod.GET, value = "validUser")
-	public String addUser(){
+	public String validUser(int id,String password){
+		User user = this.userService.findUser(id);
+		if(user.getPassword()==password) {
+			
+		}
 		System.out.println("**********findUser***********");
 		JSONObject obj = new JSONObject();
 	
@@ -55,7 +59,7 @@ public class UserController {
 	@ResponseBody
 	@RequestMapping(method = RequestMethod.POST, value = "addUser")  
     public ModelAndView addUser2(User user){
-		ModelAndView model = new ModelAndView("forward:/jsp/user/user_manage.jsp");
+		ModelAndView model = new ModelAndView("redirect:/user/userList.do");
 		this.userService.addUser(user);
 	    model.addObject("user",user);
         return model;
@@ -70,6 +74,29 @@ public class UserController {
         return model;
     }
 	
+	@ResponseBody
+	@RequestMapping(method = RequestMethod.GET, value = "delUser")  
+    public ModelAndView delUser(int id){
+		ModelAndView model = new ModelAndView("forward:/user/userList.do");
+		this.userService.delUser(this.userService.findUser(id));
+        return model;
+    }
+
+	@ResponseBody
+	@RequestMapping(method = RequestMethod.GET, value = "getUser")  
+    public ModelAndView getUser(int id){
+		ModelAndView model = new ModelAndView("forward:/jsp/user/user_update.jsp");
+		model.addObject(this.userService.findUser(id));
+        return model;
+    }
+	
+	@ResponseBody
+	@RequestMapping(method = RequestMethod.POST, value = "updateUser")  
+    public ModelAndView updateUser(User user){
+		ModelAndView model = new ModelAndView("redirect:/user/userList.do");
+		this.userService.upadteUser(user);
+        return model;
+    }
 	
 	@RequestMapping(method = RequestMethod.GET)
 	   public String printHello(ModelMap model) {
