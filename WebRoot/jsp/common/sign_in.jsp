@@ -43,16 +43,16 @@
 
   <div class="container">
 
-    <form class="login-form" action="index.html">
+    <form class="login-form" action="/lyn-ssh/user/login.do" method="post">
       <div class="login-wrap">
         <p class="login-img"><i class="icon_lock_alt"></i></p>
         <div class="input-group">
           <span class="input-group-addon"><i class="icon_profile"></i></span>
-          <input type="text" class="form-control" placeholder="Username" autofocus>
+          <input name="id" type="text" class="form-control" placeholder="User iD" autofocus>
         </div>
         <div class="input-group">
           <span class="input-group-addon"><i class="icon_key_alt"></i></span>
-          <input type="password" class="form-control" placeholder="Password">
+          <input name="password" type="password" class="form-control" placeholder="Password">
         </div>
         <label class="checkbox">
                 <input type="checkbox" value="remember-me"> Remember me
@@ -61,17 +61,7 @@
         <button class="btn btn-primary btn-lg btn-block" type="submit">Login</button>
       </div>
     </form>
-    <div class="text-right">
-      <div class="credits">
-          <!--
-            All the links in the footer should remain intact.
-            You can delete the links only if you purchased the pro version.
-            Licensing information: https://bootstrapmade.com/license/
-            Purchase the pro version form: https://bootstrapmade.com/buy/?theme=NiceAdmin
-          -->
-          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-        </div>
-    </div>
+    
   </div>
 
 

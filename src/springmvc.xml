@@ -26,4 +26,11 @@
   <mvc:default-servlet-handler />
     <!-- 配置开启注解 -->  
     <mvc:annotation-driven/> 
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean class="com.lyn.interceptor.AuthorizedInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
 </beans> 
+ 

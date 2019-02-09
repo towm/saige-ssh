@@ -51,5 +51,6 @@
 			<attribute name="owner.project.facets" value="#system#;jst.web"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/saige/Documents/JAVA CODE/sas-ssh/WebRoot/WEB-INF/lib/org.springframework.security-2.0.2.a.jar"/>
 	<classpathentry kind="output" path="WebRoot/WEB-INF/classes"/>
 </classpath>

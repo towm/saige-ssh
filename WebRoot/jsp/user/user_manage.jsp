@@ -383,7 +383,7 @@
 												</div>
 												<div class="modal-body">
 
-													<form id="add_user_form" role="form" action="updateUser.do"
+													<form id="add_user_form" role="form" action="addUser.do"
 														method="post">
 														<div class="form-group">
 															<label for="exampleInputEmail1">Name</label> <input

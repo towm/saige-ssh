@@ -6,8 +6,13 @@ import javax.annotation.Resource;
 
 import net.sf.json.JSONObject;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -33,19 +38,83 @@ public class UserController {
 	
 	// http://localhost:8080/lyn-ssh/user/addUser.do
 	@ResponseBody
-	@RequestMapping(method = RequestMethod.GET, value = "validUser")
-	public String validUser(int id,String password){
-		User user = this.userService.findUser(id);
-		if(user.getPassword()==password) {
-			
-		}
-		System.out.println("**********findUser***********");
-		JSONObject obj = new JSONObject();
-	
+	@RequestMapping(method = RequestMethod.POST, value = "validUser")
+	public ModelAndView validUser(HttpServletResponse response, String id,String password){
 		
-	
-		return obj.toString();
+		
+		ModelAndView model =null;
+		User user = this.userService.findUser(Integer.parseInt(id));
+		System.out.println(user.getPassword()+user.getName());
+		System.out.println(password);
+		if( !user.getPassword().equals(password)) 
+			{
+			     model = new ModelAndView("forward:/jsp/common/sign_in_error.jsp");
+			     return model;
+			}
+		
+		Cookie foo = new Cookie("id", String.valueOf(user.getId())); //bake cookie
+		foo.setMaxAge(2000); //set expire time to 1000 sec
+				
+		response.addCookie(foo); //put cookie in response 
+	    model = new ModelAndView("forward:/jsp/manager/manager_index.jsp");
+		model.addObject("user",user);
+		return model;
 	}
+	
+
+	@ResponseBody
+	@RequestMapping(method = RequestMethod.POST, value = "login")
+    public ModelAndView login(HttpServletRequest request,String id, String password, HttpServletResponse response){
+    	ModelAndView model =null;
+		User user = this.userService.findUser(Integer.parseInt(id));
+		System.out.println(user.getPassword()+user.getName());
+		System.out.println(password);
+		if( !user.getPassword().equals(password)) 
+			{
+			     model = new ModelAndView("forward:/jsp/common/sign_in_error.jsp");
+			     return model;
+			}
+		HttpSession session = request.getSession();
+        session.setAttribute("userid",id);
+        session.setAttribute("password",password);
+        session.setAttribute("user", user);
+       Cookie useridCookie = new Cookie("userid",id);
+       useridCookie.setMaxAge(500);
+       useridCookie.setPath("/");
+       response.addCookie(useridCookie);
+
+       Cookie[] cookies = request.getCookies();
+       System.out.println("external SessionId:"+session.getId());
+       for (Cookie cookie:cookies){
+           if(cookie.getName().equals("JSESSIONID")){
+               System.out.println("Cookie inside session id:"+session.getId());
+               cookie.setValue(session.getId());
+               cookie.setPath("/");
+               cookie.setMaxAge(500);
+               response.addCookie(cookie);
+           }
+       }
+	    model = new ModelAndView("forward:/jsp/manager/manager_index.jsp");
+		model.addObject("user",user);
+		return model;
+    }
+
+	@ResponseBody
+	@RequestMapping(method = RequestMethod.GET, value = "logout")
+    public ModelAndView logout(HttpServletRequest request,HttpServletResponse response){
+        //删除cookie
+        Cookie useridCookie = new Cookie("userid","");
+        System.out.println("remove cookie");
+        useridCookie.setMaxAge(0);
+        useridCookie.setPath("/");
+        response.addCookie(useridCookie);
+        request.getSession().removeAttribute("userid");
+        request.getSession().removeAttribute("password");
+        ModelAndView model =null;
+        model = new ModelAndView("redirect:/jsp/common/sign_in.jsp");
+		return model;
+    }
+
 	
 	@ResponseBody
 	@RequestMapping(method = RequestMethod.POST, value = "signUp")  
@@ -103,4 +172,44 @@ public class UserController {
 	      model.addAttribute("message", "Hello Spring MVC Framework!");
 	      return "hello";
 	   }
+	
+	@ResponseBody
+	@RequestMapping(method = RequestMethod.POST, value = "logincookie")
+    public String autoLogin(HttpServletRequest request,HttpServletResponse response){
+        System.out.println("Enter Controller!");
+        Cookie[] cookies = request.getCookies();
+        if(cookies==null){
+            return "redirect:login";
+        }
+        HttpSession session = request.getSession(false);
+        String sessionId = session.getId();
+ 
+        for(Cookie cookie:cookies){
+            if (cookie.getName().equals("JSESSIONID")) {
+                if(!cookie.getValue().equals(sessionId)){
+                    return "redirect:login";
+                }
+            }
+        }
+ 
+        for (Cookie cookie2:cookies){
+            if(cookie2.getName().equals("username")&&cookie2.getValue()!=null){
+                int cookieUsername = Integer.parseInt(cookie2.getValue());
+                try{
+                    String realPassword = userService.findUser(cookieUsername).getPassword();
+                    if (session.getAttribute("password").equals(realPassword)){
+                        return "welcome";
+                    }else{
+                        return "redirect:login.jsp";
+                    }
+ 
+                }catch (NullPointerException e){
+                    return "redirect:login.jsp";
+                }
+ 
+            }
+        }
+ 
+        return "redirect:login.jsp";
+    }
 }
