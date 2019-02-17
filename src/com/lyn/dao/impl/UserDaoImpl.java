@@ -47,7 +47,7 @@ public class UserDaoImpl implements UserDao{
 	
 
 	@SuppressWarnings("unchecked")
-	public List<User> getUesrList(){
+	public List<User> getUserList(){
 		Session s = this.sessionFactory.getCurrentSession();
 		return (List<User>) s.createSQLQuery("select * FROM _user;").addEntity(User.class).list();
 	}

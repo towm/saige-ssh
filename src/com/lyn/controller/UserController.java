@@ -137,8 +137,8 @@ public class UserController {
 	@ResponseBody
 	@RequestMapping(method = RequestMethod.GET, value = "userList")  
     public ModelAndView userList(User user){
-		ModelAndView model = new ModelAndView("forward:/jsp/user/user_manage.jsp");
-		List<User> users = userService.getUesrList();
+		ModelAndView model = new ModelAndView("forward:/jsp/manager/manager_user.jsp");
+		List<User> users = userService.getUserList();
 	    model.addObject("users",users);
         return model;
     }
@@ -154,7 +154,7 @@ public class UserController {
 	@ResponseBody
 	@RequestMapping(method = RequestMethod.GET, value = "getUser")  
     public ModelAndView getUser(int id){
-		ModelAndView model = new ModelAndView("forward:/jsp/user/user_update.jsp");
+		ModelAndView model = new ModelAndView("forward:/jsp/manager/manager_user_update.jsp");
 		model.addObject(this.userService.findUser(id));
         return model;
     }

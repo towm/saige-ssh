@@ -264,9 +264,9 @@
 		 <aside>
       <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
-           <ul class="sidebar-menu">
+            <ul class="sidebar-menu">
           <li class="active">
-            <a class="" href="manager_index.jsp">
+           <a class="" href="/lyn-ssh/jsp/manager/manager_index.jsp">
                           <i class="icon_house_alt"></i>
                           <span>Dashboard</span>
                       </a>
@@ -279,7 +279,7 @@
                       </a>
             <ul class="sub">
               <li> </li>
-              <li><a class="" href="/lyn-ssh/jsp/manager/manager_task.jsp">Task Form</a></li>
+              <li><a class="" href="/lyn-ssh/jsp/manager/manager_add_task.jsp">Task Form</a></li>
        
               
             </ul>
@@ -291,8 +291,8 @@
                           <span class="menu-arrow arrow_carrot-right"></span>
                       </a>
             <ul class="sub">
-              <li><a class="" href="/lyn-ssh/jsp/manager/manager_add_task.jsp">Task Table</a></li>
-              <li><a class="" href="/lyn-ssh/user/userList.do">User Manage</a></li>
+             <li><a class="" href="/lyn-ssh/task/taskList.do">Task Table</a></li>
+              <li><a class="" href="/lyn-ssh/user/userList.do">User Management</a></li>
             </ul>
           </li>
 

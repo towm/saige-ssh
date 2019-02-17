@@ -1,58 +1,64 @@
 <%@ page language="java" contentType="text/html; charset=GB18030"
-    pageEncoding="GB18030"%>
-    
+	pageEncoding="GB18030"%>
+
 <%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c'%>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Creative - Bootstrap 3 Responsive Admin Template">
-  <meta name="author" content="GeeksLabs">
-  <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
-  <link rel="shortcut icon" href="img/favicon.png">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description"
+	content="Creative - Bootstrap 3 Responsive Admin Template">
+<meta name="author" content="GeeksLabs">
+<meta name="keyword"
+	content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
+<link rel="shortcut icon" href="img/favicon.png">
 
-  <title>Creative - Bootstrap Admin Template</title>
+<title>User Update Form | Administrator</title>
 
-  <!-- Bootstrap CSS -->
-  <link href="/lyn-ssh/css/bootstrap.min.css" rel="stylesheet">
-  <!-- bootstrap theme -->
-  <link href="/lyn-ssh/css/bootstrap-theme.css" rel="stylesheet">
-  <!--external css-->
-  <!-- font icon -->
-  <link href="/lyn-ssh/css/elegant-icons-style.css" rel="stylesheet" />
-  <link href="/lyn-ssh/css/font-awesome.min.css" rel="stylesheet" />
-  <!-- full calendar css-->
-  <link href="/lyn-ssh//assets/fullcalendar/fullcalendar/bootstrap-fullcalendar.css" rel="stylesheet" />
-  <link href="/lyn-ssh//assets/fullcalendar/fullcalendar/fullcalendar.css" rel="stylesheet" />
-  <!-- easy pie chart-->
-  <link href="/lyn-ssh/assets/jquery-easy-pie-chart/jquery.easy-pie-chart.css" rel="stylesheet" type="text/css" media="screen" />
-  <!-- owl carousel -->
-  <link rel="stylesheet" href="/lyn-ssh/css/owl.carousel.css" type="text/css">
-  <link href="/lyn-ssh/css/jquery-jvectormap-1.2.2.css" rel="stylesheet">
-  <!-- Custom styles -->
-  <link rel="/stylesheet" href="/lyn-ssh/css/fullcalendar.css">
-  <link href="/lyn-ssh/css/widgets.css" rel="stylesheet">
-  <link href="/lyn-ssh/css/style.css" rel="stylesheet">
-  <link href="/lyn-ssh/css/style-responsive.css" rel="stylesheet" />
-  <link href="/lyn-ssh/css/xcharts.min.css" rel=" stylesheet">
-  <link href="/lyn-ssh/css/jquery-ui-1.10.4.min.css" rel="stylesheet">
-  <!-- =======================================================
-    Theme Name: NiceAdmin
-    Theme URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
-    Author: BootstrapMade
-    Author URL: https://bootstrapmade.com
-  ======================================================= -->
+<!-- Bootstrap CSS -->
+<link href="/lyn-ssh/css/bootstrap.min.css" rel="stylesheet">
+<!-- bootstrap theme -->
+<link href="/lyn-ssh/css/bootstrap-theme.css" rel="stylesheet">
+<!--external css-->
+<!-- font icon -->
+<link href="/lyn-ssh/css/elegant-icons-style.css" rel="stylesheet" />
+<link href="/lyn-ssh/css/font-awesome.min.css" rel="stylesheet" />
+<link href="/lyn-ssh/css/daterangepicker.css" rel="stylesheet" />
+<link href="/lyn-ssh/css/bootstrap-datepicker.css" rel="stylesheet" />
+<link href="/lyn-ssh/css/bootstrap-colorpicker.css" rel="stylesheet" />
+<!-- date picker -->
+
+<!-- color picker -->
+
+<!-- Custom styles -->
+<link href="/lyn-ssh/css/style.css" rel="stylesheet">
+<link href="/lyn-ssh/css/style-responsive.css" rel="stylesheet" />
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 -->
+<!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+      <script src="js/respond.min.js"></script>
+      <script src="js/lte-ie7.js"></script>
+    <![endif]-->
+
+<!-- =======================================================
+      Theme Name: NiceAdmin
+      Theme URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
+      Author: BootstrapMade
+      Author URL: https://bootstrapmade.com
+    ======================================================= -->
+ 
 </head>
 
 <body>
+	<!-- custom user update form start -->
 
-  <!-- container section start -->
-  <section id="container" class="">
-    <!--header start-->
-
-   <header class="header dark-bg">
+	<!-- container section start -->
+	<section id="container" class="">
+		<!--header start-->
+		<header class="header dark-bg">
       <div class="toggle-nav">
         <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><i class="icon_menu"></i></div>
       </div>
@@ -312,15 +318,15 @@
         <!-- notificatoin dropdown end-->
       </div>
     </header>
-    <!--header end-->
+		<!--header end-->
 
-    <!--sidebar start-->
-    <aside>
+		<!--sidebar start-->
+		     <aside>
       <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
              <ul class="sidebar-menu">
           <li class="active">
-                  <a class="" href="/lyn-ssh/jsp/manager/manager_index.jsp">
+            <a class="" href="/lyn-ssh/jsp/manager/manager_index.jsp">
                           <i class="icon_house_alt"></i>
                           <span>Dashboard</span>
                       </a>
@@ -345,7 +351,7 @@
                           <span class="menu-arrow arrow_carrot-right"></span>
                       </a>
             <ul class="sub">
-              <li><a class="" href="/lyn-ssh/task/taskList.do">Task Table</a></li>
+            <li><a class="" href="/lyn-ssh/task/taskList.do">Task Table</a></li>
               <li><a class="" href="/lyn-ssh/user/userList.do">User Management</a></li>
             </ul>
           </li>
@@ -354,142 +360,168 @@
         <!-- sidebar menu end-->
       </div>
     </aside>
-    <!--sidebar end-->
+		<!--sidebar end-->
 
-    <!--main content start-->
-    <section id="main-content">
-			<section class="wrapper">
-
-				<!-- Basic Forms & Horizontal Forms-->
-
-				<div class="row">
+		<!--main content start-->
+		
+		
+		<section id="main-content">
+      <section class="wrapper">
+        <div class="row">
+          <div class="col-lg-12">
+            <h3 class="page-header"><i class="fa fa-file-text-o"></i> Form elements</h3>
+            <ol class="breadcrumb">
+              <li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
+              <li><i class="icon_document_alt"></i>Forms</li>
+              <li><i class="fa fa-file-text-o"></i>Form elements</li>
+            </ol>
+          </div>
+        </div>
+        <div class="row">
           <div class="col-lg-12">
             <section class="panel">
               <header class="panel-heading">
-                Responsive tables
+                Form Elements
               </header>
-              <div class="table-responsive">
-                <table class="table">
-                  <thead>
-                    <tr>
-                      <th>#</th>
-                      <th>Task Name</th>
-                      <th>Task Date</th>
-                      <th>Task Progress</th>
-                      <th>Task Product Quality</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <c:forEach items="${tasks}" var="task">
-										<tr>
-										<td><c:out value="${task.id}" /></td>
-											<td><c:out value="${task.name}" /></td>
-											<td><c:out value="${task.date}" /></td>
-											<td><c:out value="${task.progress}" /></td>
-											<td><c:out value="${task.quality}" /></td>
-										</tr>
-									</c:forEach>
-                  </tbody>
-                </table>
-              </div>
+              		
+<div class="panel-body">
+               
+                      <form class="form-horizontal" id="update_user_form" role="form" method="post" action="/lyn-ssh/user/updateUser.do">
+														<div class="form-group">
+															<label for="exampleInputEmail1" class="col-lg-2 control-label">Name</label> <div class="col-lg-10">
+															<input name="name" value='${user.name}' class="form-control" id="nameInput1" placeholder="Name">
+														</div></div>
 
+														<div class="form-group">
+															<label for="exampleInputEmail1" class="col-lg-2 control-label" >City</label> <div class="col-lg-10"><input
+																name="city"  value='${user.city}' class="form-control" id="cityInput1"
+																placeholder="City">
+														</div></div>
+														<div class="form-group">
+															<label for="exampleInputEmail1" class="col-lg-2 control-label">Email address</label>
+															<div class="col-sm-10">
+                                                                     <input	name="email" value='${user.email}' type="email" class="form-control" id="emailInput1" placeholder="Email">
+                                                             </div>
+															 
+														</div>
+														<div class="form-group">
+															<label class="control-label col-lg-2" for="inputSuccess">Role</label>
+															<div class="col-lg-10">
+																<select onchange="this.form.submit()" name="role"
+																	form="update_user_form" class="form-control m-bot15">
+																	<option id="selInput1" selected="selected">1</option>
+																	<option id="selInput2">2</option>
+																	<option id="selInput3">3</option>
+																	<option id="selInput4">4</option>
+																	<option id="selInput5">5</option>
+																</select>
+															</div>
+														</div>
+														<div class="form-group">
+															<label class="col-lg-2 control-label" for="exampleInputEmail1">Phone</label> <div class="col-lg-10"><input value='${user.phone}' name="phone" type="tel" class="form-control"
+																id="phoneInput1" placeholder="Phone Number"></div>
+														</div>
+														<div class="form-group">
+															<label for="exampleInputPassword1" class="col-lg-2 control-label">Password</label><div class="col-lg-10"> <input value='${user.password}' name="password" class="form-control" id="passwordInput1"
+																placeholder="Password">
+														</div></div>
+														
+														<input name="id" type="hidden" value="${user.id}">
+														
+                                                            <div class="form-group">
+                        <label class="col-lg-2 control-label">Starts with years view</label>
+                        <div class="col-lg-10">
+
+
+                          <div class="input-append date" id="dpYears" data-date="18-06-2013" data-date-format="dd-mm-yyyy" data-date-viewmode="years">
+                            <input name="date" id="dp1" type="text" value='${user.date}' size="16" class="form-control">
+                            <span class="add-on"><i class="icon-calendar"></i></span>
+                          </div>
+                        </div>
+                      </div>
+														
+														<button type="submit" class="btn btn-primary">Submit</button>
+													</form>
+													<!-- modal for update user end -->
+
+				
+					
+</div>
             </section>
-          </div>
-        </div>
+            
+              </div>
+            </div>
+         
+        <!-- page end-->
+      </section>
+    </section>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 
 
-			</section>
-		</section>
-    <!--main content end-->
-   
-  </section>
-  <!-- container section end -->
-  <!-- javascripts -->
-  <script src="/lyn-ssh/js/jquery.js"></script>
-  <script src="/lyn-ssh/js/jquery-ui-1.10.4.min.js"></script>
-  <script src="/lyn-ssh/js/jquery-1.8.3.min.js"></script>
-  <script type="/lyn-ssh/text/javascript" src="js/jquery-ui-1.9.2.custom.min.js"></script>
-  <!-- bootstrap -->
-  <script src="/lyn-ssh/js/bootstrap.min.js"></script>
-  <!-- nice scroll -->
-  <script src="/lyn-ssh/js/jquery.scrollTo.min.js"></script>
-  <script src="/lyn-ssh/js/jquery.nicescroll.js" type="text/javascript"></script>
-  <!-- charts scripts -->
-  <script src="/lyn-ssh/assets/jquery-knob/js/jquery.knob.js"></script>
-  <script src="/lyn-ssh/js/jquery.sparkline.js" type="text/javascript"></script>
-  <script src="/lyn-ssh/assets/jquery-easy-pie-chart/jquery.easy-pie-chart.js"></script>
-  <script src="/lyn-ssh/js/owl.carousel.js"></script>
-  <!-- jQuery full calendar -->
-  <<script src="/js/fullcalendar.min.js"></script>
-    <!-- Full Google Calendar - Calendar -->
-    <script src="/assets/fullcalendar/fullcalendar/fullcalendar.js"></script>
-    <!--script for this page only-->
-    <script src="/js/calendar-custom.js"></script>
-    <script src="/lyn-ssh/js/jquery.rateit.min.js"></script>
-    <!-- custom select -->
-    <script src="/lyn-ssh/js/jquery.customSelect.min.js"></script>
-    <script src="/lyn-ssh/assets/chart-master/Chart.js"></script>
+		
+		<!--main content end-->
 
-    <!--custome script for all page-->
-    <script src="/lyn-ssh/js/scripts.js"></script>
-    <!-- custom script for this page-->
-    <script src="/lyn-ssh/js/sparkline-chart.js"></script>
-    <script src="/lyn-ssh/js/easy-pie-chart.js"></script>
-    <script src="/lyn-ssh/js/jquery-jvectormap-1.2.2.min.js"></script>
-    <script src="/lyn-ssh/js/jquery-jvectormap-world-mill-en.js"></script>
-    <script src="/lyn-ssh/js/xcharts.min.js"></script>
-    <script src="/lyn-ssh/js/jquery.autosize.min.js"></script>
-    <script src="/lyn-ssh/js/jquery.placeholder.min.js"></script>
-    <script src="/lyn-ssh/js/gdp-data.js"></script>
-    <script src="/lyn-ssh/js/morris.min.js"></script>
-    <script src="/lyn-ssh/js/sparklines.js"></script>
-    <script src="/lyn-ssh/js/charts.js"></script>
-    <script src="/lyn-ssh/js/jquery.slimscroll.min.js"></script>
-    <script>
-      //knob
-      $(function() {
-        $(".knob").knob({
-          'draw': function() {
-            $(this.i).val(this.cv + '%')
-          }
-        })
-      });
+	</section>
+	<!-- container section end -->
+	<!-- javascripts -->
 
-      //carousel
-      $(document).ready(function() {
-        $("#owl-slider").owlCarousel({
-          navigation: true,
-          slideSpeed: 300,
-          paginationSpeed: 400,
-          singleItem: true
+	<script src="/lyn-ssh/js/jquery.js"></script>
+	<script src="/lyn-ssh/js/bootstrap.min.js"></script>
+	<!-- nice scroll -->
+	<script src="/lyn-ssh/js/jquery.scrollTo.min.js"></script>
+	<script src="/lyn-ssh/js/jquery.nicescroll.js" type="text/javascript"></script>
 
-        });
-      });
+	<!-- jquery ui -->
+	<script src="/lyn-ssh/js/jquery-ui-1.9.2.custom.min.js"></script>
 
-      //custom select box
+	<!--custom checkbox & radio-->
+	<script type="/lyn-ssh/text/javascript" src="js/ga.js"></script>
+	<!--custom switch-->
+	<script src="/lyn-ssh/js/bootstrap-switch.js"></script>
+	<!--custom tagsinput-->
+	<script src="/lyn-ssh/js/jquery.tagsinput.js"></script>
 
-      $(function() {
-        $('select.styled').customSelect();
-      });
+	<!-- colorpicker -->
 
-      /* ---------- Map ---------- */
-      $(function() {
-        $('#map').vectorMap({
-          map: 'world_mill_en',
-          series: {
-            regions: [{
-              values: gdpData,
-              scale: ['#000', '#000'],
-              normalizeFunction: 'polynomial'
-            }]
-          },
-          backgroundColor: '#eef3f7',
-          onLabelShow: function(e, el, code) {
-            el.html(el.html() + ' (GDP - ' + gdpData[code] + ')');
-          }
-        });
-      });
-    </script>
+	<!-- bootstrap-wysiwyg -->
+	<script src="/lyn-ssh/js/jquery.hotkeys.js"></script>
+	<script src="/lyn-ssh/js/bootstrap-wysiwyg.js"></script>
+	<script src="/lyn-ssh/js/bootstrap-wysiwyg-custom.js"></script>
+	<script src="/lyn-ssh/js/moment.js"></script>
+	<script src="/lyn-ssh/js/bootstrap-colorpicker.js"></script>
+	<script src="/lyn-ssh/js/daterangepicker.js"></script>
+	<script src="/lyn-ssh/js/bootstrap-datepicker.js"></script>
+	<!-- ck editor -->
+	<script type="/lyn-ssh/text/javascript"
+		src="assets/ckeditor/ckeditor.js"></script>
+	<!-- custom form component script for this page-->
+	<script src="/lyn-ssh/js/form-component.js"></script>
+	<!-- custome script for all page -->
+	<script src="/lyn-ssh/js/scripts.js"></script>
+
+    
+
 </body>
 
 </html>

@@ -32,8 +32,9 @@ public class UserServiceImpl implements UserService{
 		userDao.delUser(user);
 	}
 	
-	public List<User> getUesrList(){
-		return this.userDao.getUesrList();
+	public List<User> getUserList(){
+		return this.userDao.getUserList();
 	}
+
 
 }

@@ -57,7 +57,7 @@
       </div>
 
       <!--logo start-->
-      <a href="index.html" class="logo">Nice <span class="lite">Admin</span></a>
+      <a href="/lyn-ssh/jsp/manager/manager_index.jsp" class="logo">Lyn <span class="lite">Workshop</span></a>
       <!--logo end-->
 
       <div class="nav search-row" id="top_menu">
@@ -314,12 +314,12 @@
     <!--header end-->
 
     <!--sidebar start-->
-    <aside>
+     <aside>
       <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
-        <ul class="sidebar-menu">
+           <ul class="sidebar-menu">
           <li class="active">
-            <a class="" href="index.html">
+                  <a class="" href="/lyn-ssh/jsp/manager/manager_index.jsp">
                           <i class="icon_house_alt"></i>
                           <span>Dashboard</span>
                       </a>
@@ -332,59 +332,20 @@
                       </a>
             <ul class="sub">
               <li> </li>
-              <li><a class="" href="/lyn-ssh/jsp/manager/manager_task.jsp">Task Form</a></li>
+              <li><a class="" href="/lyn-ssh/jsp/manager/manager_add_task.jsp">Task Form</a></li>
+       
+              
             </ul>
           </li>
-          <li class="sub-menu">
-            <a href="javascript:;" class="">
-                          <i class="icon_desktop"></i>
-                          <span>UI Fitures</span>
-                          <span class="menu-arrow arrow_carrot-right"></span>
-                      </a>
-            <ul class="sub">
-              <li><a class="" href="general.html">Elements</a></li>
-              <li><a class="" href="buttons.html">Buttons</a></li>
-              <li><a class="" href="grids.html">Grids</a></li>
-            </ul>
-          </li>
-          <li>
-            <a class="" href="widgets.html">
-                          <i class="icon_genius"></i>
-                          <span>Widgets</span>
-                      </a>
-          </li>
-          <li>
-            <a class="" href="chart-chartjs.html">
-                          <i class="icon_piechart"></i>
-                          <span>Charts</span>
-
-                      </a>
-
-          </li>
-
-          <li class="sub-menu">
+           <li class="sub-menu">
             <a href="javascript:;" class="">
                           <i class="icon_table"></i>
                           <span>Tables</span>
                           <span class="menu-arrow arrow_carrot-right"></span>
                       </a>
             <ul class="sub">
-              <li><a class="" href="basic_table.html">Basic Table</a></li>
-            </ul>
-          </li>
-
-          <li class="sub-menu">
-            <a href="javascript:;" class="">
-                          <i class="icon_documents_alt"></i>
-                          <span>Pages</span>
-                          <span class="menu-arrow arrow_carrot-right"></span>
-                      </a>
-            <ul class="sub">
-              <li><a class="" href="profile.html">Profile</a></li>
-              <li><a class="" href="login.html"><span>Login Page</span></a></li>
-              <li><a class="" href="contact.html"><span>Contact Page</span></a></li>
-              <li><a class="" href="blank.html">Blank Page</a></li>
-              <li><a class="" href="404.html">404 Error</a></li>
+              <li><a class="" href="/lyn-ssh/task/taskList.do">Task Table</a></li>
+              <li><a class="" href="/lyn-ssh/user/userList.do">User Management</a></li>
             </ul>
           </li>
 
@@ -402,7 +363,7 @@
           <div class="col-lg-12">
             <h3 class="page-header"><i class="fa fa-laptop"></i> Dashboard</h3>
             <ol class="breadcrumb">
-              <li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
+              <li><i class="fa fa-home"></i><a href="manager_index.jsp">Home</a></li>
               <li><i class="fa fa-laptop"></i>Dashboard</li>
             </ol>
           </div>
@@ -460,9 +421,9 @@
               <div class="panel-heading">
                 <h2><i class="fa fa-map-marker red"></i><strong>Countries</strong></h2>
                 <div class="panel-actions">
-                  <a href="index.html#" class="btn-setting"><i class="fa fa-rotate-right"></i></a>
-                  <a href="index.html#" class="btn-minimize"><i class="fa fa-chevron-up"></i></a>
-                  <a href="index.html#" class="btn-close"><i class="fa fa-times"></i></a>
+                  <a href="manager_index.jsp#" class="btn-setting"><i class="fa fa-rotate-right"></i></a>
+                  <a href="manager_index.jsp#" class="btn-minimize"><i class="fa fa-chevron-up"></i></a>
+                  <a href="manager_index.jsp#" class="btn-close"><i class="fa fa-times"></i></a>
                 </div>
               </div>
               <div class="panel-body-map">
@@ -515,9 +476,9 @@
               <div class="panel-heading">
                 <h2><i class="fa fa-flag-o red"></i><strong>Registered Users</strong></h2>
                 <div class="panel-actions">
-                  <a href="index.html#" class="btn-setting"><i class="fa fa-rotate-right"></i></a>
-                  <a href="index.html#" class="btn-minimize"><i class="fa fa-chevron-up"></i></a>
-                  <a href="index.html#" class="btn-close"><i class="fa fa-times"></i></a>
+                  <a href="manager_index.jsp#" class="btn-setting"><i class="fa fa-rotate-right"></i></a>
+                  <a href="manager_index.jsp#" class="btn-minimize"><i class="fa fa-chevron-up"></i></a>
+                  <a href="manager_index.jsp#" class="btn-close"><i class="fa fa-times"></i></a>
                 </div>
               </div>
               <div class="panel-body">

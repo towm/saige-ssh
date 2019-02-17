@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=GB18030"
     pageEncoding="GB18030"%>
-    
-<%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c'%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,7 +11,7 @@
   <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
   <link rel="shortcut icon" href="img/favicon.png">
 
-  <title>Creative - Bootstrap Admin Template</title>
+  <title>Task Management</title>
 
   <!-- Bootstrap CSS -->
   <link href="/lyn-ssh/css/bootstrap.min.css" rel="stylesheet">
@@ -320,7 +318,7 @@
         <!-- sidebar menu start-->
              <ul class="sidebar-menu">
           <li class="active">
-                  <a class="" href="/lyn-ssh/jsp/manager/manager_index.jsp">
+              <a class="" href="/lyn-ssh/jsp/manager/manager_index.jsp">
                           <i class="icon_house_alt"></i>
                           <span>Dashboard</span>
                       </a>
@@ -361,47 +359,86 @@
 			<section class="wrapper">
 
 				<!-- Basic Forms & Horizontal Forms-->
-
-				<div class="row">
+				  <div class="row">
           <div class="col-lg-12">
             <section class="panel">
               <header class="panel-heading">
-                Responsive tables
+                Task Form
               </header>
-              <div class="table-responsive">
-                <table class="table">
-                  <thead>
-                    <tr>
-                      <th>#</th>
-                      <th>Task Name</th>
-                      <th>Task Date</th>
-                      <th>Task Progress</th>
-                      <th>Task Product Quality</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <c:forEach items="${tasks}" var="task">
-										<tr>
-										<td><c:out value="${task.id}" /></td>
-											<td><c:out value="${task.name}" /></td>
-											<td><c:out value="${task.date}" /></td>
-											<td><c:out value="${task.progress}" /></td>
-											<td><c:out value="${task.quality}" /></td>
-										</tr>
-									</c:forEach>
-                  </tbody>
-                </table>
-              </div>
+           
+              <div class="panel-body">
+                <div class="form">
+                  <form class="form-validate form-horizontal" id="add_task_form" method="post" action="/lyn-ssh/task/addTask.do">
+                    <div class="form-group ">
+                      <label for="cname" class="control-label col-lg-2">Task Name <span class="required">*</span></label>
+                      <div class="col-lg-10">
+                        <input class="form-control" id="cname" name="name" minlength="5" type="text" required />
+                      </div>
+                    </div>
+                     <div class="form-group ">
+                      <label for="cname" class="control-label col-lg-2">Task Progress <span class="required">*</span></label>
+                      <div class="col-lg-10">
+       
+                        <select onchange="this.form.submit()" name="progress" form="add_task_form" class="form-control m-bot15">
+																	<option selected="selected">2</option>
+																	<option>1</option>
+																	<option>3</option>
+																	<option>4</option>
+																	<option>5</option>
+																</select>
+                      </div>
+                    </div>
+                    <div class="form-group">
+															<label class="control-label col-lg-2">Datepicker</label>
+															<div class="col-lg-10">
+																<input name="date" id="dp1" type="text" value="28-10-2013" size="16" class="form-control">
+															</div>
+														</div>
+														
+                    <div class="form-group ">
+                      <label for="cname" class="control-label col-lg-2">Quality <span class="required">*</span></label>
+                      <div class="col-lg-10">
+                        <input class="form-control " id="cname" type="number" name="quality" required />
+                      </div>
+                    </div>
+                    
+                 
+                    <div class="form-group ">
+                      <label for="ccomment" class="control-label col-lg-2">Feedback</label>
+                      <div class="col-lg-10">
+                        <textarea class="form-control " id="ccomment" name="message" required></textarea>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="col-lg-offset-2 col-lg-10">
+                        <button class="btn btn-primary" type="submit">Submit</button>
+                        <button class="btn btn-default" type="button">Cancel</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
 
+              </div>
             </section>
           </div>
         </div>
-
+				
+											
 
 			</section>
 		</section>
     <!--main content end-->
-   
+    <div class="text-right">
+      <div class="credits">
+          <!--
+            All the links in the footer should remain intact.
+            You can delete the links only if you purchased the pro version.
+            Licensing information: https://bootstrapmade.com/license/
+            Purchase the pro version form: https://bootstrapmade.com/buy/?theme=NiceAdmin
+          -->
+          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        </div>
+    </div>
   </section>
   <!-- container section end -->
   <!-- javascripts -->
