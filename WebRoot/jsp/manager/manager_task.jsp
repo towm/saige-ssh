@@ -375,8 +375,12 @@
                       <th>#</th>
                       <th>Task Name</th>
                       <th>Task Date</th>
-                      <th>Task Progress</th>
+                      <th>Purchase Sub-Task Id</th>
+                      <th>Produce Sub-Task Id</th>
+                      <th>Task Stock Related List Id</th>
+                      <th>Task Status</th>
                       <th>Task Product Quality</th>
+                      <th>Task Priority</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -385,8 +389,22 @@
 										<td><c:out value="${task.id}" /></td>
 											<td><c:out value="${task.name}" /></td>
 											<td><c:out value="${task.date}" /></td>
-											<td><c:out value="${task.progress}" /></td>
+											<td><c:out value="${task.ptaskid}" /></td>
+											<td><c:out value="${task.produceid}" /></td>
+											<td><c:out value="${task.stockid}" /></td>
+											<td><li class="dropdown">
+                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"><c:out value="${task.progress}" /><b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="/lyn-ssh/task/updateTaskStatus.do?id=${task.id}&status=0">Set Not Started</a></li>
+                      <li><a href="/lyn-ssh/task/updateTaskStatus.do?id=${task.id}&status=1">Set In Progress 20%</a></li>
+                      <li><a href="/lyn-ssh/task/updateTaskStatus.do?id=${task.id}&status=2">Set In Progress 50%</a></li>
+                      <li><a href="/lyn-ssh/task/updateTaskStatus.do?id=${task.id}&status=3">Set In Progress 80%</a></li>
+                      <li><a href="/lyn-ssh/task/updateTaskStatus.do?id=${task.id}&status=4">Set Completed</a></li>
+                      
+                    </ul>
+                  </li></td>
 											<td><c:out value="${task.quality}" /></td>
+											<td><span class="badge bg-${task.priority}"><c:out value="${task.priority}" /></span></td>
 										</tr>
 									</c:forEach>
                   </tbody>

@@ -3924,7 +3924,7 @@ div[data-role="editor-toolbar"] {
 
 
 
-.badge.bg-primary {
+.badge.bg-low {
 
     background: #688a7e;
 
@@ -3932,7 +3932,7 @@ div[data-role="editor-toolbar"] {
 
 
 
-.badge.bg-success {
+.badge.bg-medium {
 
     background: #4cd964;
 
@@ -3940,7 +3940,7 @@ div[data-role="editor-toolbar"] {
 
 
 
-.badge.bg-warning {
+.badge.bg-urgent {
 
     background: #FCB322;
 
@@ -3948,7 +3948,7 @@ div[data-role="editor-toolbar"] {
 
 
 
-.badge.bg-important {
+.badge.bg-high {
 
     background: #00a0df;
 

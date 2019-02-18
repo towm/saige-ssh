@@ -11,7 +11,7 @@
   <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
   <link rel="shortcut icon" href="img/favicon.png">
 
-  <title>Task Management</title>
+  <title>Purchase Task Management</title>
 
   <!-- Bootstrap CSS -->
   <link href="/lyn-ssh/css/bootstrap.min.css" rel="stylesheet">
@@ -313,12 +313,12 @@
     <!--header end-->
 
     <!--sidebar start-->
-    <aside>
+  <aside>
       <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
-             <ul class="sidebar-menu">
+           <ul class="sidebar-menu">
           <li class="active">
-              <a class="" href="/lyn-ssh/jsp/manager/manager_index.jsp">
+                  <a class="" href="/lyn-ssh/jsp/purchaser/purchaser_index.jsp">
                           <i class="icon_house_alt"></i>
                           <span>Dashboard</span>
                       </a>
@@ -331,7 +331,7 @@
                       </a>
             <ul class="sub">
               <li> </li>
-              <li><a class="" href="/lyn-ssh/jsp/manager/manager_add_task.jsp">Task Form</a></li>
+              <li><a class="" href="/lyn-ssh/jsp/purchaser/purchaser_add_task.jsp">Purchase Form</a></li>
        
               
             </ul>
@@ -343,8 +343,8 @@
                           <span class="menu-arrow arrow_carrot-right"></span>
                       </a>
             <ul class="sub">
-              <li><a class="" href="/lyn-ssh/task/taskList.do">Task Table</a></li>
-              <li><a class="" href="/lyn-ssh/user/userList.do">User Management</a></li>
+              <li><a class="" href="/lyn-ssh/task/taskListP.do">Task Table</a></li>
+              <li><a class="" href="/lyn-ssh/task/pTaskList.do">Purchase Table</a></li>
             </ul>
           </li>
 
@@ -368,18 +368,19 @@
            
               <div class="panel-body">
                 <div class="form">
-                  <form class="form-validate form-horizontal" id="add_task_form" method="post" action="/lyn-ssh/task/addTask.do">
-                    <div class="form-group ">
-                      <label for="cname" class="control-label col-lg-2">Task Name <span class="required">*</span></label>
-                      <div class="col-lg-10">
-                        <input class="form-control" id="cname" name="name" minlength="5" type="text" required />
-                      </div>
-                    </div>
-                     <div class="form-group ">
+                  <form class="form-validate form-horizontal" id="add_ptask_form" method="post" action="/lyn-ssh/task/addPTask.do">
+	                    <div class="form-group ">
+	                      <label for="cname" class="control-label col-lg-2">Purchase Task Name <span class="required">*</span></label>
+	                      <div class="col-lg-10">
+	                        <input class="form-control" id="cname" name="name" minlength="5" type="text" required />
+	                      </div>
+	                    </div>
+	                    
+	                     <div class="form-group ">
 	                      <label for="cname" class="control-label col-lg-2">Task Progress <span class="required">*</span></label>
 	                      <div class="col-lg-10">
 	       
-	                        <select name="progress" form="add_task_form" class="form-control m-bot15">
+	                        <select name="progress" form="add_ptask_form" class="form-control m-bot15">
 																		<option selected="selected">Not Started</option>
 	                                                                    <option>In Progress 20%</option>
 	                                                                    <option>In Progress 50%</option>
@@ -389,26 +390,34 @@
 																	</select>
 	                      </div>
 	                    </div>
-                    <div class="form-group">
+	                    
+                                                       <div class="form-group">
 															<label class="control-label col-lg-2">Datepicker</label>
 															<div class="col-lg-10">
 																<input name="date" id="dp1" type="text" value="28-10-2013" size="16" class="form-control">
 															</div>
 														</div>
 														
-           
+                    <div class="form-group ">
+                      <label for="cname" class="control-label col-lg-2">Quality <span class="required">*</span></label>
+                      <div class="col-lg-10">
+                        <input class="form-control " id="cname" type="number" name="quality" required />
+                      </div>
+                    </div>
                     
-                      
-                      
-                        <input type="hidden" name="produceid" value=0 />
-                         <input type="hidden" name="ptaskid" value=0  />
-                         <input type="hidden" name="stockid" value=0  />
-                         
-                          <div class="form-group ">
+                     <div class="form-group ">
+                      <label for="cname" class="control-label col-lg-2">Task-Related List id <span class="required">*</span></label>
+                      <div class="col-lg-10">
+                        <input class="form-control " id="cname" type="number" name="listid" required />
+                      </div>
+                    </div>
+                    
+                    
+                    <div class="form-group ">
 	                      <label for="cname" class="control-label col-lg-2">Task Priority  <span class="required">*</span></label>
 	                      <div class="col-lg-10">
 	       
-	                        <select name="priority" form="add_task_form" class="form-control m-bot15">
+	                        <select name="priority" form="add_ptask_form" class="form-control m-bot15">
 																		<option selected="selected">medium</option>
 	                                                                    <option>low</option>
 	                                                                    <option>high</option>
@@ -418,21 +427,17 @@
 																	</select>
 	                      </div>
 	                    </div>
-                    
-                    
-                       <div class="form-group ">
-                      <label for="cname" class="control-label col-lg-2">Quality <span class="required">*</span></label>
-                      <div class="col-lg-10">
-                        <input class="form-control " id="cname" type="number" name="quality" required />
-                      </div>
-                    </div>
+	                    
+	                    
+             
                  
                     <div class="form-group ">
-                      <label for="ccomment" class="control-label col-lg-2">Feedback</label>
+                      <label for="ccomment" class="control-label col-lg-2">Comment</label>
                       <div class="col-lg-10">
                         <textarea class="form-control " id="ccomment" name="message" required></textarea>
                       </div>
                     </div>
+                    
                     <div class="form-group">
                       <div class="col-lg-offset-2 col-lg-10">
                         <button class="btn btn-primary" type="submit">Submit</button>

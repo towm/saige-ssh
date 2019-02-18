@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=GB18030"
     pageEncoding="GB18030"%>
+    
+<%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c'%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,7 +13,7 @@
   <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
   <link rel="shortcut icon" href="img/favicon.png">
 
-  <title>Task Management</title>
+  <title>Creative - Bootstrap Admin Template</title>
 
   <!-- Bootstrap CSS -->
   <link href="/lyn-ssh/css/bootstrap.min.css" rel="stylesheet">
@@ -316,9 +318,9 @@
     <aside>
       <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
-             <ul class="sidebar-menu">
+           <ul class="sidebar-menu">
           <li class="active">
-              <a class="" href="/lyn-ssh/jsp/manager/manager_index.jsp">
+                  <a class="" href="/lyn-ssh/jsp/purchaser/purchaser_index.jsp">
                           <i class="icon_house_alt"></i>
                           <span>Dashboard</span>
                       </a>
@@ -331,7 +333,7 @@
                       </a>
             <ul class="sub">
               <li> </li>
-              <li><a class="" href="/lyn-ssh/jsp/manager/manager_add_task.jsp">Task Form</a></li>
+              <li><a class="" href="/lyn-ssh/jsp/purchaser/purchaser_add_task.jsp">Purchase Form</a></li>
        
               
             </ul>
@@ -343,8 +345,8 @@
                           <span class="menu-arrow arrow_carrot-right"></span>
                       </a>
             <ul class="sub">
-              <li><a class="" href="/lyn-ssh/task/taskList.do">Task Table</a></li>
-              <li><a class="" href="/lyn-ssh/user/userList.do">User Management</a></li>
+              <li><a class="" href="/lyn-ssh/task/taskListP.do">Task Table</a></li>
+              <li><a class="" href="/lyn-ssh/task/pTaskList.do">Purchase Table</a></li>
             </ul>
           </li>
 
@@ -359,110 +361,61 @@
 			<section class="wrapper">
 
 				<!-- Basic Forms & Horizontal Forms-->
-				  <div class="row">
+
+				<div class="row">
           <div class="col-lg-12">
             <section class="panel">
               <header class="panel-heading">
-                Task Form
+                Responsive tables
               </header>
-           
-              <div class="panel-body">
-                <div class="form">
-                  <form class="form-validate form-horizontal" id="add_task_form" method="post" action="/lyn-ssh/task/addTask.do">
-                    <div class="form-group ">
-                      <label for="cname" class="control-label col-lg-2">Task Name <span class="required">*</span></label>
-                      <div class="col-lg-10">
-                        <input class="form-control" id="cname" name="name" minlength="5" type="text" required />
-                      </div>
-                    </div>
-                     <div class="form-group ">
-	                      <label for="cname" class="control-label col-lg-2">Task Progress <span class="required">*</span></label>
-	                      <div class="col-lg-10">
-	       
-	                        <select name="progress" form="add_task_form" class="form-control m-bot15">
-																		<option selected="selected">Not Started</option>
-	                                                                    <option>In Progress 20%</option>
-	                                                                    <option>In Progress 50%</option>
-	                                                                    <option>In Progress 80%</option>
-	                                                                    <option>Completed</option>
-																		
-																	</select>
-	                      </div>
-	                    </div>
-                    <div class="form-group">
-															<label class="control-label col-lg-2">Datepicker</label>
-															<div class="col-lg-10">
-																<input name="date" id="dp1" type="text" value="28-10-2013" size="16" class="form-control">
-															</div>
-														</div>
-														
-           
-                    
+              <div class="table-responsive">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Purchase Task Name</th>
+                      <th>Purchase Task Date</th>
+                      <th>Main-Purchase Id</th>
+                      <th>Purchase Task Progress</th>
+                      <th>Purchase Task Product Quality</th>
+                      <th>Purchase Task Priority</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <c:forEach items="${psubtasks}" var="ptask">
+										<tr>
+										<td><c:out value="${ptask.id}" /></td>
+											<td><c:out value="${ptask.name}" /></td>
+											<td><c:out value="${ptask.date}" /></td>
+											<td><c:out value="${ptask.listid}" /></td>
+											<td><li class="dropdown">
+                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"><c:out value="${ptask.progress}" /><b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="/lyn-ssh/task/updatePTaskStatus.do?id=${ptask.id}&status=0">Set Not Started</a></li>
+                      <li><a href="/lyn-ssh/task/updatePTaskStatus.do?id=${ptask.id}&status=1">Set In Progress 20%</a></li>
+                      <li><a href="/lyn-ssh/task/updatePTaskStatus.do?id=${ptask.id}&status=2">Set In Progress 50%</a></li>
+                      <li><a href="/lyn-ssh/task/updatePTaskStatus.do?id=${ptask.id}&status=3">Set In Progress 80%</a></li>
+                      <li><a href="/lyn-ssh/task/updatePTaskStatus.do?id=${ptask.id}&status=4">Set Completed</a></li>
                       
-                      
-                        <input type="hidden" name="produceid" value=0 />
-                         <input type="hidden" name="ptaskid" value=0  />
-                         <input type="hidden" name="stockid" value=0  />
-                         
-                          <div class="form-group ">
-	                      <label for="cname" class="control-label col-lg-2">Task Priority  <span class="required">*</span></label>
-	                      <div class="col-lg-10">
-	       
-	                        <select name="priority" form="add_task_form" class="form-control m-bot15">
-																		<option selected="selected">medium</option>
-	                                                                    <option>low</option>
-	                                                                    <option>high</option>
-	                                                                    <option>urgent</option>
-	                                                                   
-																		
-																	</select>
-	                      </div>
-	                    </div>
-                    
-                    
-                       <div class="form-group ">
-                      <label for="cname" class="control-label col-lg-2">Quality <span class="required">*</span></label>
-                      <div class="col-lg-10">
-                        <input class="form-control " id="cname" type="number" name="quality" required />
-                      </div>
-                    </div>
-                 
-                    <div class="form-group ">
-                      <label for="ccomment" class="control-label col-lg-2">Feedback</label>
-                      <div class="col-lg-10">
-                        <textarea class="form-control " id="ccomment" name="message" required></textarea>
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <div class="col-lg-offset-2 col-lg-10">
-                        <button class="btn btn-primary" type="submit">Submit</button>
-                        <button class="btn btn-default" type="button">Cancel</button>
-                      </div>
-                    </div>
-                  </form>
-                </div>
-
+                    </ul>
+                  </li></td>
+											<td><c:out value="${ptask.quality}" /></td>
+											<td><span class="badge bg-${ptask.priority}"><c:out value="${ptask.priority}" /></span></td>
+										</tr>
+									</c:forEach>
+                  </tbody>
+                </table>
               </div>
+
             </section>
           </div>
         </div>
-				
-											
+
 
 			</section>
 		</section>
     <!--main content end-->
-    <div class="text-right">
-      <div class="credits">
-          <!--
-            All the links in the footer should remain intact.
-            You can delete the links only if you purchased the pro version.
-            Licensing information: https://bootstrapmade.com/license/
-            Purchase the pro version form: https://bootstrapmade.com/buy/?theme=NiceAdmin
-          -->
-          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-        </div>
-    </div>
+   
   </section>
   <!-- container section end -->
   <!-- javascripts -->

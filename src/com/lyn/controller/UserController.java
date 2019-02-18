@@ -67,9 +67,14 @@ public class UserController {
     public ModelAndView login(HttpServletRequest request,String id, String password, HttpServletResponse response){
     	ModelAndView model =null;
 		User user = this.userService.findUser(Integer.parseInt(id));
+		if(user==null) 
+		{
+		     model = new ModelAndView("forward:/jsp/common/sign_in_error.jsp");
+		     return model;
+		}
 		System.out.println(user.getPassword()+user.getName());
 		System.out.println(password);
-		if( !user.getPassword().equals(password)) 
+		if(!user.getPassword().equals(password)) 
 			{
 			     model = new ModelAndView("forward:/jsp/common/sign_in_error.jsp");
 			     return model;
