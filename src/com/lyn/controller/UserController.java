@@ -56,7 +56,16 @@ public class UserController {
 		foo.setMaxAge(2000); //set expire time to 1000 sec
 				
 		response.addCookie(foo); //put cookie in response 
-	    model = new ModelAndView("forward:/jsp/manager/manager_index.jsp");
+		switch(user.getRole()) {
+		
+		case "Manager":
+			
+			model = new ModelAndView("forward:/task/mindex.do");
+			break;
+		
+		
+		}
+	    
 		model.addObject("user",user);
 		return model;
 	}
@@ -101,7 +110,19 @@ public class UserController {
        }
 	    model = new ModelAndView("forward:/jsp/manager/manager_index.jsp");
 		model.addObject("user",user);
+switch(user.getRole()) {
+		
+		case "Manager":
+			
+			model = new ModelAndView("forward:/task/mindex.do");
+			break;
+		
+		
+		}
+	    
+		model.addObject("user",user);
 		return model;
+		
     }
 
 	@ResponseBody

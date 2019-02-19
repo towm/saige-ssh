@@ -22,7 +22,9 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.ui.ModelMap;
 
 import com.lyn.model.PTask;
+import com.lyn.model.ProgressBar;
 import com.lyn.model.Task;
+import com.lyn.model.User;
 import com.lyn.service.PTaskService;
 import com.lyn.service.TaskService;
 
@@ -69,6 +71,22 @@ public class TaskController {
         return model;
     }
 	
+	@ResponseBody
+	@RequestMapping(method = RequestMethod.POST, value = "mindex")  
+    public ModelAndView managerIndex(User user){
+		ModelAndView model = new ModelAndView("forward:/jsp/manager/manager_index.jsp");
+		List<Task> tasks = this.taskService.getTaskList();
+		
+	    model.addObject("tasks",tasks);
+	    List<ProgressBar> progress_bars = new ArrayList<ProgressBar>();
+	    for(Task t:tasks) {
+	    	progress_bars.add(new ProgressBar(t));
+	    }
+	    
+	    model.addObject("bars",progress_bars);
+	    model.addObject("bars_len",progress_bars.size());
+        return model;
+    }
 	
 	@ResponseBody
 	@RequestMapping(method = RequestMethod.GET, value = "taskList")  
