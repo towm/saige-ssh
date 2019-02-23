@@ -12,10 +12,12 @@ package com.lyn.dao.impl;
 import org.hibernate.SessionFactory;
 import java.util.List;
 import org.hibernate.Query;
+import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.lyn.dao.ProductDao;
+import com.lyn.model.PTask;
 import com.lyn.model.Product;
 
 @Repository
@@ -49,6 +51,13 @@ public class ProductDaoImpl implements ProductDao{
 	@Override
 	public void update(Product product) {
 		sessionFactory.getCurrentSession().update(product);
+		
+	}
+	
+	public List<Product> getProductList(){
+		Session s = this.sessionFactory.getCurrentSession();
+		
+		return (List<Product>) s.createSQLQuery("select * FROM _product ;").addEntity(Product.class).list();
 		
 	}
 }

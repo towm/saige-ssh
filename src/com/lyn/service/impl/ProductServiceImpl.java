@@ -18,7 +18,7 @@ import com.lyn.model.Product;
 import com.lyn.service.ProductService;
 
 @Service("productService")
-public class ProductServiceImpl {
+public class ProductServiceImpl implements ProductService {
 	
 	@Autowired
 	private ProductDao productDao;
@@ -35,4 +35,19 @@ public class ProductServiceImpl {
 	public List<Product> findByName(String name){
 		return this.productDao.findByName(name);
 	}
+	
+	public List<Product> getProductList(){
+		return null;
+		
+	}
+
+	/* (non-Javadoc)
+	 * @see com.lyn.service.ProductService#findByName()
+	 */
+	@Override
+	public List<Product> findByName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
 }

@@ -1,5 +1,7 @@
 package com.lyn.service;
 
+import com.lyn.model.PTask;
+
 /**
  * @author    Yaning Liu
  *
@@ -18,6 +20,8 @@ public interface ProductService {
 	public void addProduct(Product product);
 	
 	public Product findById(int id);
+	
+	public List<Product> getProductList();
 	
 	public List<Product> findByName();
 	

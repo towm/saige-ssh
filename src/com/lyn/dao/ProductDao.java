@@ -24,4 +24,5 @@ public interface ProductDao{
 	
 	public void update(Product product);
 	
+	public List<Product> getProductList();
 }
