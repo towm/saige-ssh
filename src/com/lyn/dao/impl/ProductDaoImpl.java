@@ -10,6 +10,8 @@ package com.lyn.dao.impl;
  *
  */
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -30,7 +32,7 @@ public class ProductDaoImpl implements ProductDao{
 		this.sessionFactory.getCurrentSession().save(product);
 	}
 	
-	public Product findById(int id) {
+	public Product findById(long id) {
 		return (Product)this.sessionFactory.getCurrentSession().get(Product.class, id);
 	}
 	
@@ -50,7 +52,16 @@ public class ProductDaoImpl implements ProductDao{
 	 */
 	@Override
 	public void update(Product product) {
-		sessionFactory.getCurrentSession().update(product);
+		Session session = sessionFactory.openSession();
+	    Transaction tx = session.beginTransaction();
+
+	    //update/insert operations here
+
+	    session.update(product);
+
+	    tx.commit();
+
+	    session.close();
 		
 	}
 	

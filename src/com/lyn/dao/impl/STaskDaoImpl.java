@@ -71,6 +71,7 @@ public class STaskDaoImpl implements STaskDao{
 	/* (non-Javadoc)
 	 * @see com.lyn.dao.STaskDao#getSubSTaskList()
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<STask> getSubSTaskList(int i) {
 		Session s = this.sessionFactory.getCurrentSession();

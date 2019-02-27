@@ -389,7 +389,7 @@
 											<td><c:out value="${task.date}" /></td>
 											<td>
 											<li class="dropdown">
-                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"><c:out value="${task.ptaskid}" /><b class="caret"></b></a>
+                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"><c:out value="${stask.ptaskid}" /><b class="caret"></b></a>
                     <ul class="dropdown-menu">
                     <c:forEach items="${listids}" var="listid">
                       <li><a href="/lyn-ssh/task/updateTaskListid.do?id=${task.id}&listid=${listid}"><c:out value="${listid}" /></a></li>

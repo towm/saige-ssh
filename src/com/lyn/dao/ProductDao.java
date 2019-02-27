@@ -18,7 +18,7 @@ public interface ProductDao{
 	
 	public void addProduct(Product product) ;
 	
-	public Product findById(int id) ;
+	public Product findById(long id) ;
 	
 	public List<Product> findByName(String name) ;
 	

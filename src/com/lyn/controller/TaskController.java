@@ -76,6 +76,7 @@ public class TaskController {
 	@RequestMapping(method = RequestMethod.POST, value = "addPTask")  
     public ModelAndView addTask3(PTask ptask){
 		ModelAndView model = new ModelAndView("redirect:/task/pTaskList.do");
+	
 		this.pTaskService.addPTask(ptask);
 	    model.addObject("ptask",ptask);
         return model;
@@ -98,23 +99,7 @@ public class TaskController {
         return model;
     }
 	
-	@ResponseBody
-	@RequestMapping(method = RequestMethod.POST, value = "sindex")  
-    public ModelAndView stockIndex(User user){
-		ModelAndView model = new ModelAndView("forward:/jsp/stock/stock_index.jsp");
-		List<STask> stasks = this.sTaskService.getSTaskList();
-		List<Product> products = this.productService.getProductList();
-	    model.addObject("stasks",stasks);
-//	    List<ProgressBar> progress_bars = new ArrayList<ProgressBar>();
-//	    for(STask t:stasks) {
-//	    	progress_bars.add(new ProgressBar(t));
-//	    }
-//	    
-//	    model.addObject("bars",progress_bars);
-//	    model.addObject("bars_len",progress_bars.size());
-	    model.addObject("products",products);
-        return model;
-    }
+	
 	
 	@ResponseBody
 	@RequestMapping(method = RequestMethod.GET, value = "taskList")  

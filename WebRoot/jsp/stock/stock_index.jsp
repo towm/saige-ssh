@@ -332,7 +332,7 @@
                       </a>
             <ul class="sub">
               <li> </li>
-              <li><a class="" href="/lyn-ssh/jsp/purchaser/purchaser_add_task.jsp">Purchase Form</a></li>
+              <li><a class="" href="/lyn-ssh/jsp/stock/stock_insert.jsp">Stock Task Form</a></li>
        
               
             </ul>
@@ -1030,6 +1030,9 @@
   <script src="/lyn-ssh/js/jquery-ui-1.10.4.min.js"></script>
   <script src="/lyn-ssh/js/jquery-1.8.3.min.js"></script>
   <script type="/lyn-ssh/text/javascript" src="js/jquery-ui-1.9.2.custom.min.js"></script>
+  	<script src="/lyn-ssh/js/bootstrap-colorpicker.js"></script>
+	<script src="/lyn-ssh/js/daterangepicker.js"></script>
+	<script src="/lyn-ssh/js/bootstrap-datepicker.js"></script>
   <!-- bootstrap -->
   <script src="/lyn-ssh/js/bootstrap.min.js"></script>
   <!-- nice scroll -->

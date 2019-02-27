@@ -28,7 +28,7 @@ public class ProductServiceImpl implements ProductService {
 		this.productDao.addProduct(product);
 	}
 	
-	public Product findById(int id) {
+	public Product findById(long id) {
 		return this.productDao.findById(id);
 	}
 	
@@ -37,17 +37,19 @@ public class ProductServiceImpl implements ProductService {
 	}
 	
 	public List<Product> getProductList(){
-		return null;
+		return productDao.getProductList();
 		
 	}
 
 	/* (non-Javadoc)
-	 * @see com.lyn.service.ProductService#findByName()
+	 * @see com.lyn.service.ProductService#upadteProduct(com.lyn.model.Product)
 	 */
 	@Override
-	public List<Product> findByName() {
-		// TODO Auto-generated method stub
-		return null;
+	public void upadteProduct(Product p) {
+		this.productDao.update(p);
+		
 	}
+
+	
 	
 }

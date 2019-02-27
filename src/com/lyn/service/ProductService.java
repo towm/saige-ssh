@@ -19,10 +19,12 @@ public interface ProductService {
 	
 	public void addProduct(Product product);
 	
-	public Product findById(int id);
+	public void upadteProduct(Product p);
+	
+	public Product findById(long id);
 	
 	public List<Product> getProductList();
 	
-	public List<Product> findByName();
+	public List<Product> findByName(String name);
 	
 }

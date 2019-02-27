@@ -373,38 +373,38 @@
                   <thead>
                     <tr>
                       <th>#</th>
-                      <th>Stock Task Name</th>
-                      <th>Stock Task Date</th>
-                      <th>Main-Stock Task Id</th>
-                    
-                      <th>Stock Task Product id</th>
-                      <th>Stock Task Product name</th>
-                      <th>Quality To Process</th>
-                        <th>Stock Task Progress</th>
-                      <th>Stock Task Priority</th>
+                      <th>Stock-Task Name</th>
+                      <th>Stock-Task Type</th>
+                      <th>Product name</th>
+                      <th>Stock-Task Date</th>
+                      <th>Main Stock-Task Id</th>
+                      <th>Quality</th>
+                      <th>Stock-Task Status</th>
+                      <th>Stock-Task Priority</th>
                     </tr>
                   </thead>
                   <tbody>
                     <c:forEach items="${stasks}" var="stask">
 										<tr>
 										<td><c:out value="${stask.id}" /></td>
-											<td><c:out value="${stask.name}" /></td>
-											<td><c:out value="${stask.date}" /></td>
-											<td><!--  <a href="/lyn-ssh/task/subTaskListP.do?listid=${ptask.listid}"><c:out value="${ptask.listid}" /></a>--></td>
-											<td><c:out value="${stask.product.id}" /></td>
-											<td><c:out value="${stask.product.name}" /></td>
+											<td data-original-title="task comment" data-content="${stask.message}" data-placement="top" data-trigger="hover" class="btn btn-default btn-sm popovers" ><c:out value="${stask.name}" /></td>
+											<td><c:out value="${stask.type}" /></td>
+											
+											<td data-original-title="product info" data-content="id: ${stask.product.id} Capacity: ${stask.product.id}" data-placement="top" data-trigger="hover" class="btn btn-default btn-sm popovers"><c:out value="${stask.product.name}" /></td>
+						                    
+						                    <td><c:out value="${stask.date}" /></td>
+						                    <td><a href="subTaskList.do?listid=${stask.listid}"><c:out value="${stask.listid}" /></a></td>
 											<td><c:out value="${stask.quality}" /></td>
-											<td><!--<li class="dropdown">
-                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"><c:out value="${ptask.progress}" /><b class="caret"></b></a>
+											<td class="dropdown">
+                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"><c:out value="${stask.progress}" /><b class="caret"></b></a>
                     <ul class="dropdown-menu">
-                      <li><a href="/lyn-ssh/task/updatePTaskStatus.do?id=${ptask.id}&status=0">Set Not Started</a></li>
-                      <li><a href="/lyn-ssh/task/updatePTaskStatus.do?id=${ptask.id}&status=1">Set In Progress 20%</a></li>
-                      <li><a href="/lyn-ssh/task/updatePTaskStatus.do?id=${ptask.id}&status=2">Set In Progress 50%</a></li>
-                      <li><a href="/lyn-ssh/task/updatePTaskStatus.do?id=${ptask.id}&status=3">Set In Progress 80%</a></li>
-                      <li><a href="/lyn-ssh/task/updatePTaskStatus.do?id=${ptask.id}&status=4">Set Completed</a></li>
-                      
+                      <li><a href="updateStatus.do?id=${stask.id}&status=0">Set Not Started</a></li>
+                      <li><a href="updateStatus.do?id=${stask.id}&status=1">Set In Progress 20%</a></li>
+                      <li><a href="updateStatus.do?id=${stask.id}&status=2">Set In Progress 50%</a></li>
+                      <li><a href="updateStatus.do?id=${stask.id}&status=3">Set In Progress 80%</a></li>
+                      <li><a href="updateStatus.do?id=${stask.id}&status=4">Set Completed</a></li>
                     </ul>
-                  </li>--></td>
+                  </td>
 											
 											<td><span class="badge bg-${stask.priority}"><c:out value="${stask.priority}" /></span></td>
 										</tr>
@@ -414,6 +414,8 @@
               </div>
 
             </section>
+            
+		
           </div>
         </div>
 
