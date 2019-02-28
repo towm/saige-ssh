@@ -1,5 +1,6 @@
 package com.lyn.controller;
 
+import java.net.HttpCookie;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -15,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CookieValue;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -31,6 +33,7 @@ import com.lyn.service.PTaskService;
 import com.lyn.service.ProductService;
 import com.lyn.service.STaskService;
 import com.lyn.service.TaskService;
+import com.lyn.service.UserService;
 
 /**
  * @author    Yaning Liu
@@ -46,11 +49,9 @@ import com.lyn.service.TaskService;
 @RequestMapping("/task")
 public class TaskController {
 	
-	//对TaskService接口，当只有一个实现类继承接口时，可以使用@Autowired，接口实现类@Service注解即可。
-	//多个的时候使用@Resource(name="taskService2")来指定调那个子接口，接口实现类@Service("taskService2")注解即可。
-//	@Autowired
-//	private TaskService taskService;
-//	
+	@Resource(name="userService")
+	private UserService userService;
+	
 	@Resource(name="taskService")
 	private TaskService taskService;
     
@@ -84,16 +85,18 @@ public class TaskController {
 	
 	@ResponseBody
 	@RequestMapping(method = RequestMethod.POST, value = "mindex")  
-    public ModelAndView managerIndex(User user){
+    public ModelAndView managerIndex(HttpServletRequest request, HttpServletResponse response){
+		long id = Long.parseLong((String) request.getSession().getAttribute("userid"));
 		ModelAndView model = new ModelAndView("forward:/jsp/manager/manager_index.jsp");
 		List<Task> tasks = this.taskService.getTaskList();
-		
+		User user = this.userService.findUser(id);
+		System.out.print("WHY:?"+user.getName());
 	    model.addObject("tasks",tasks);
 	    List<ProgressBar> progress_bars = new ArrayList<ProgressBar>();
 	    for(Task t:tasks) {
 	    	progress_bars.add(new ProgressBar(t));
 	    }
-	    
+	    model.addObject("user",user);
 	    model.addObject("bars",progress_bars);
 	    model.addObject("bars_len",progress_bars.size());
         return model;

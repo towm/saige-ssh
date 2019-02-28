@@ -393,13 +393,14 @@
 														</div></div>
 
 														<div class="form-group">
-															<label for="exampleInputEmail1" class="col-lg-2 control-label" >City</label> <div class="col-lg-10"><input
+															<label for="exampleInputEmail1" class="col-lg-2 control-label" >City</label> 
+															<div class="col-lg-10"><input
 																name="city"  value='${user.city}' class="form-control" id="cityInput1"
 																placeholder="City">
 														</div></div>
 														<div class="form-group">
 															<label for="exampleInputEmail1" class="col-lg-2 control-label">Email address</label>
-															<div class="col-sm-10">
+															<div class="col-lg-10">
                                                                      <input	name="email" value='${user.email}' type="email" class="form-control" id="emailInput1" placeholder="Email">
                                                              </div>
 															 
@@ -407,13 +408,14 @@
 														<div class="form-group">
 															<label class="control-label col-lg-2" for="inputSuccess">Role</label>
 															<div class="col-lg-10">
-																<select onchange="this.form.submit()" name="role"
+																<select value="${user.email}" name="role"
 																	form="update_user_form" class="form-control m-bot15">
-																	<option id="selInput1" selected="selected">1</option>
-																	<option id="selInput2">2</option>
-																	<option id="selInput3">3</option>
-																	<option id="selInput4">4</option>
-																	<option id="selInput5">5</option>
+																	<option selected="selected">${user.role}</option>
+																	<option>Manager</option>
+																	<option>Stock Manager</option>
+																	<option>Purchaser</option>
+																	<option>Producer</option>
+																	<option>Seller</option>
 																</select>
 															</div>
 														</div>

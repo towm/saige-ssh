@@ -108,19 +108,26 @@ public class UserController {
                response.addCookie(cookie);
            }
        }
-	    model = new ModelAndView("forward:/jsp/manager/manager_index.jsp");
-		model.addObject("user",user);
+	    
+	    
 switch(user.getRole()) {
 		
 		case "Manager":
 			
 			model = new ModelAndView("forward:/task/mindex.do");
+			
+			break;
+		case "Stock Manager":
+			
+			model = new ModelAndView("forward:/task/mindex.do");
+			
 			break;
 		
 		
 		}
 	    
-		model.addObject("user",user);
+		model.addObject(user);
+		
 		return model;
 		
     }

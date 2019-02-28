@@ -316,18 +316,20 @@
 							<table class="table table-striped table-advance table-hover">
 								<tbody>
 									<tr>
+									   <th><i class="icon_ol"></i>Id</th></th>
 										<th><i class="icon_profile"></i> Full Name</th>
 										<th><i class="icon_calendar"></i> Date</th>
-										<th><i class="icon_mail_alt"></i> Email</th>
+										<th><i class="icon_group"></i> Role</th>
 										<th><i class="icon_pin_alt"></i> City</th>
 										<th><i class="icon_mobile"></i> Mobile</th>
 										<th><i class="icon_cogs"></i> Action</th>
 									</tr>
 									<c:forEach items="${users}" var="user">
 										<tr>
+											<td><c:out value="${user.id}" /></td>
 											<td><c:out value="${user.name}" /></td>
 											<td><c:out value="${user.date}" /></td>
-											<td><c:out value="${user.email}" /></td>
+											<td><c:out value="${user.role}" /></td>
 											<td><c:out value="${user.city}" /></td>
 											<td><c:out value="${user.phone}" /></td>
 											<td>
@@ -383,13 +385,14 @@
 														<div class="form-group">
 															<label class="control-label col-lg-2" for="inputSuccess">Role</label>
 															<div class="col-lg-10">
-																<select onchange="this.form.submit()" name="role"
+																<select name="role"
 																	form="add_user_form" class="form-control m-bot15">
-																	<option selected="selected">2</option>
-																	<option>1</option>
-																	<option>3</option>
-																	<option>4</option>
-																	<option>5</option>
+																	
+																	<option>Manager</option>
+																	<option>Stock Manager</option>
+																	<option>Purchaser</option>
+																	<option>Producer</option>
+																	<option>Seller</option>
 																</select>
 															</div>
 														</div>

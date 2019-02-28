@@ -18,12 +18,9 @@
 	    <!--sidebar start-->
 	     <%@ include file="parts/aside.jsp" %>  
 	    <!--sidebar end-->
-    	
-    	<!--main content start-->
-    <section id="main-content">
-      
-   
-    <!--main content end-->
+	    
+	    
+	    
     
   </section>
   <!-- container section end -->
