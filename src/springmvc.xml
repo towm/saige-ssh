@@ -33,7 +33,7 @@
             <property name="exceptUrls">  
                     <list>  
                         <value>/user/login.do</value>  
-         
+         				<value>/user/signUp.do</value>
                     </list>  
                 </property>  
                </bean>   
