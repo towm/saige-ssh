@@ -85,13 +85,7 @@ public class StockController {
 		List<STask> stasks = this.sTaskService.getSTaskList();
 		List<Product> products = this.productService.getProductList();
 	    model.addObject("stasks",stasks);
-//	    List<ProgressBar> progress_bars = new ArrayList<ProgressBar>();
-//	    for(STask t:stasks) {
-//	    	progress_bars.add(new ProgressBar(t));
-//	    }
-//	    
-//	    model.addObject("bars",progress_bars);
-//	    model.addObject("bars_len",progress_bars.size());
+
 	    model.addObject("products",products);
         return model;
     }

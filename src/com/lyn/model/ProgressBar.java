@@ -42,8 +42,17 @@ public class ProgressBar {
 	
 	
 	/**
-	 * @return the width
+	 * @param t
 	 */
+	public ProgressBar(STask t) {
+		super();
+		this.width = this.getWidth2(t.getProgress());
+		this.color = this.getColor2(t.getPriority());
+		this.name = t.getName();
+		this.task_id = this.getTask_id();
+	}
+
+	
 	public String getWidth() {
 		return width;
 	}

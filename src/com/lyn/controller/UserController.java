@@ -90,8 +90,6 @@ public class UserController {
 			}
 		HttpSession session = request.getSession();
         session.setAttribute("userid",id);
-        session.setAttribute("password",password);
-        session.setAttribute("user", user);
        Cookie useridCookie = new Cookie("userid",id);
        useridCookie.setMaxAge(500);
        useridCookie.setPath("/");
@@ -109,22 +107,25 @@ public class UserController {
            }
        }
 	    
-	    
-switch(user.getRole()) {
-		
-		case "Manager":
-			
-			model = new ModelAndView("forward:/task/mindex.do");
-			
-			break;
-		case "Stock Manager":
-			
-			model = new ModelAndView("forward:/task/mindex.do");
-			
-			break;
-		
-		
-		}
+	    System.out.print(user.getRole());
+		switch(user.getRole()) {
+				
+				case "Manager":
+					
+					model = new ModelAndView("redirect:/jsp/manager/index.do");
+					
+					break;
+				case "Stock Manager":
+					
+					model = new ModelAndView("forward:/task/mindex.do");
+				case "Produce Manager":
+					
+					model = new ModelAndView("redirect:/jsp/produce/index.do");
+					
+					break;
+				
+				
+				}
 	    
 		model.addObject(user);
 		
@@ -184,13 +185,6 @@ switch(user.getRole()) {
         return model;
     }
 
-	@ResponseBody
-	@RequestMapping(method = RequestMethod.GET, value = "getUser")  
-    public ModelAndView getUser(int id){
-		ModelAndView model = new ModelAndView("forward:/jsp/manager/manager_user_update.jsp");
-		model.addObject(this.userService.findUser(id));
-        return model;
-    }
 	
 	@ResponseBody
 	@RequestMapping(method = RequestMethod.POST, value = "updateUser")  

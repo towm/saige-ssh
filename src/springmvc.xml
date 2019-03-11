@@ -29,7 +29,14 @@
     <mvc:interceptors>
         <mvc:interceptor>
             <mvc:mapping path="/**"/>
-            <bean class="com.lyn.interceptor.AuthorizedInterceptor"/>
+            <bean class="com.lyn.interceptor.AuthorizedInterceptor">
+            <property name="exceptUrls">  
+                    <list>  
+                        <value>/user/login.do</value>  
+         
+                    </list>  
+                </property>  
+               </bean>   
         </mvc:interceptor>
     </mvc:interceptors>
 </beans> 
