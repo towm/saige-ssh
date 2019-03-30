@@ -326,18 +326,17 @@
 												<h1>New Product Form</h1>
 												<div class="form">
 													<form class="form-validate form-horizontal"
-														id="add_task_form2" method="post"
-														action="newStock.do">
+														id="add_task_form2" method="post" action="newStock.do">
 														<div class="form-group ">
 															<label for="cname" class="control-label col-lg-2">Product
 																Name <span class="required">*</span>
 															</label>
 															<div class="col-lg-10">
-																<input class="form-control" id="cname"
-																	name="product3" minlength="3" type="text" required />
+																<input class="form-control" id="cname" name="product3"
+																	minlength="3" type="text" required />
 															</div>
 														</div>
-													
+
 														<div class="form-group ">
 															<label for="cname" class="control-label col-lg-2">Task
 																Name <span class="required">*</span>
@@ -359,17 +358,18 @@
 																	<option>In Progress 20%</option>
 																	<option>In Progress 50%</option>
 																	<option>In Progress 80%</option>
-																	
+
 
 																</select>
 															</div>
 														</div>
-													  
-														
+
+
 														<div class="form-group">
 															<label class="control-label col-lg-2">Date</label>
 															<div class="col-lg-10">
-																<input name="date" id="dp1" value="28-10-2013" type="text" size="16" class="form-control">
+																<input name="date" id="dp1" value="28-10-2013"
+																	type="text" size="16" class="form-control">
 															</div>
 														</div>
 
@@ -389,8 +389,8 @@
 																</select>
 															</div>
 														</div>
-													
-														
+
+
 														<div class="form-group ">
 															<label for="cname" class="control-label col-lg-2">Stock-In/Out
 																Type <span class="required">*</span>
@@ -489,7 +489,7 @@
 																	<option>In Progress 20%</option>
 																	<option>In Progress 50%</option>
 																	<option>In Progress 80%</option>
-																	
+
 
 																</select>
 															</div>
@@ -513,7 +513,9 @@
 																</td> <select name="product2" form="add_task_form"
 																	class="form-control m-bot15">
 																	<c:forEach items="${products}" var="product">
-																		<option><c:out value="${product.id}" /> : <c:out value="${product.name}" />(Stock)<c:out value="${product.quality}" />)
+																		<option><c:out value="${product.id}" /> :
+																			<c:out value="${product.name}" />(Stock)
+																			<c:out value="${product.quality}" />)
 																		</option>
 																	</c:forEach>
 
@@ -528,7 +530,8 @@
 														<div class="form-group">
 															<label class="control-label col-lg-2">Date2</label>
 															<div class="col-lg-10">
-																<input name="date" id="dp2" value="28-10-2013" type="text" size="16" class="form-control">
+																<input name="date" id="dp2" value="28-10-2013"
+																	type="text" size="16" class="form-control">
 															</div>
 														</div>
 

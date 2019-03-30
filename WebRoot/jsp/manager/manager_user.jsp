@@ -49,7 +49,7 @@
       Author: BootstrapMade
       Author URL: https://bootstrapmade.com
     ======================================================= -->
- 
+
 </head>
 
 <body>
@@ -67,7 +67,9 @@
 			</div>
 
 			<!--logo start-->
-      <a href="/lyn-ssh/jsp/manager/manager_index.jsp" class="logo">Lyn <span class="lite">Workshop</span></a>
+			<a href="/lyn-ssh/jsp/manager/manager_index.jsp" class="logo">Lyn
+				<span class="lite">Workshop</span>
+			</a>
 			<!--logo end-->
 
 			<div class="nav search-row" id="top_menu">
@@ -246,8 +248,8 @@
 							<li><a href="#"><i class="icon_clock_alt"></i> Timeline</a>
 							</li>
 							<li><a href="#"><i class="icon_chat_alt"></i> Chats</a></li>
-							<li><a href="/lyn-ssh/user/logout.do"><i class="icon_key_alt"></i>
-									Log Out</a></li>
+							<li><a href="/lyn-ssh/user/logout.do"><i
+									class="icon_key_alt"></i> Log Out</a></li>
 							<li><a href="documentation.html"><i class="icon_key_alt"></i>
 									Documentation</a></li>
 							<li><a href="documentation.html"><i class="icon_key_alt"></i>
@@ -261,45 +263,40 @@
 		<!--header end-->
 
 		<!--sidebar start-->
-		 <aside>
-      <div id="sidebar" class="nav-collapse ">
-        <!-- sidebar menu start-->
-            <ul class="sidebar-menu">
-          <li class="active">
-           <a class="" href="/lyn-ssh/jsp/manager/manager_index.jsp">
-                          <i class="icon_house_alt"></i>
-                          <span>Dashboard</span>
-                      </a>
-          </li>
-          <li class="sub-menu">
-            <a href="javascript:;" class="">
-                          <i class="icon_document_alt"></i>
-                          <span>Forms</span>
-                          <span class="menu-arrow arrow_carrot-right"></span>
-                      </a>
-            <ul class="sub">
-              <li> </li>
-              <li><a class="" href="/lyn-ssh/jsp/manager/manager_add_task.jsp">Task Form</a></li>
-       
-              
-            </ul>
-          </li>
-           <li class="sub-menu">
-            <a href="javascript:;" class="">
-                          <i class="icon_table"></i>
-                          <span>Tables</span>
-                          <span class="menu-arrow arrow_carrot-right"></span>
-                      </a>
-            <ul class="sub">
-             <li><a class="" href="/lyn-ssh/task/taskList.do">Task Table</a></li>
-              <li><a class="" href="/lyn-ssh/user/userList.do">User Management</a></li>
-            </ul>
-          </li>
+		<aside>
+			<div id="sidebar" class="nav-collapse ">
+				<!-- sidebar menu start-->
+				<ul class="sidebar-menu">
+					<li class="active"><a class=""
+						href="/lyn-ssh/jsp/manager/manager_index.jsp"> <i
+							class="icon_house_alt"></i> <span>Dashboard</span>
+					</a></li>
+					<li class="sub-menu"><a href="javascript:;" class=""> <i
+							class="icon_document_alt"></i> <span>Forms</span> <span
+							class="menu-arrow arrow_carrot-right"></span>
+					</a>
+						<ul class="sub">
+							<li></li>
+							<li><a class=""
+								href="/lyn-ssh/jsp/manager/manager_add_task.jsp">Task Form</a></li>
 
-        </ul>
-        <!-- sidebar menu end-->
-      </div>
-    </aside>
+
+						</ul></li>
+					<li class="sub-menu"><a href="javascript:;" class=""> <i
+							class="icon_table"></i> <span>Tables</span> <span
+							class="menu-arrow arrow_carrot-right"></span>
+					</a>
+						<ul class="sub">
+							<li><a class="" href="/lyn-ssh/task/taskList.do">Task
+									Table</a></li>
+							<li><a class="" href="/lyn-ssh/user/userList.do">User
+									Management</a></li>
+						</ul></li>
+
+				</ul>
+				<!-- sidebar menu end-->
+			</div>
+		</aside>
 		<!--sidebar end-->
 
 		<!--main content start-->
@@ -316,7 +313,8 @@
 							<table class="table table-striped table-advance table-hover">
 								<tbody>
 									<tr>
-									   <th><i class="icon_ol"></i>Id</th></th>
+										<th><i class="icon_ol"></i>Id</th>
+										</th>
 										<th><i class="icon_profile"></i> Full Name</th>
 										<th><i class="icon_calendar"></i> Date</th>
 										<th><i class="icon_group"></i> Role</th>
@@ -335,10 +333,11 @@
 											<td>
 												<div class="btn-group">
 													<a class="btn btn-primary" href="#add_User_Modal"
-														data-toggle="modal"><i class="icon_plus_alt2"></i></a>  
-														<a class="btn btn-success" href="/lyn-ssh/user/getUser.do?id=${user.id}" data-toggle="modal"><i class="icon_pencil-edit_alt"></i></a> 
-														<a
-														class="btn btn-danger"
+														data-toggle="modal"><i class="icon_plus_alt2"></i></a> <a
+														class="btn btn-success"
+														href="/lyn-ssh/user/getUser.do?id=${user.id}"
+														data-toggle="modal"><i class="icon_pencil-edit_alt"></i></a>
+													<a class="btn btn-danger"
 														href="/lyn-ssh/user/delUser.do?id=${user.id}"><i
 														class="icon_close_alt2"></i></a>
 												</div>
@@ -349,154 +348,154 @@
 
 								</tbody>
 							</table>
-                            </section>
-							
-									
-									<!-- modal for add user start -->
-									<div aria-hidden="true" aria-labelledby="add_User"
-										role="dialog" tabindex="-1" id="add_User_Modal"
-										class="modal fade">
-										<div class="modal-dialog">
-											<div class="modal-content">
-												<div class="modal-header">
-													<button aria-hidden="true" data-dismiss="modal"
-														class="close" type="button">¡Á</button>
-													<h4 class="modal-title">User Insert Form</h4>
-												</div>
-												<div class="modal-body">
-
-													<form id="add_user_form" role="form" action="addUser.do"
-														method="post">
-														<div class="form-group">
-															<label for="exampleInputEmail1">Name</label> <input
-																name="name" class="form-control" id="exampleInputEmail1"
-																placeholder="Name">
-														</div>
-														<div class="form-group">
-															<label for="exampleInputEmail1">City</label> <input
-																name="city" class="form-control" id="exampleInputEmail1"
-																placeholder="City">
-														</div>
-														<div class="form-group">
-															<label for="exampleInputEmail1">Email address</label> <input
-																name="email" type="email" class="form-control"
-																id="exampleInputEmail1" placeholder="Email">
-														</div>
-														<div class="form-group">
-															<label class="control-label col-lg-2" for="inputSuccess">Role</label>
-															<div class="col-lg-10">
-																<select name="role"
-																	form="add_user_form" class="form-control m-bot15">
-																	
-																	<option>Manager</option>
-																	<option>Stock Manager</option>
-																	<option>Purchaser</option>
-																	<option>Producer</option>
-																	<option>Seller</option>
-																</select>
-															</div>
-														</div>
-														<div class="form-group">
-															<label for="exampleInputEmail1">Phone</label> <input
-																name="phone" type="tel" class="form-control"
-																id="exampleInputEmail1" placeholder="Phone Number">
-														</div>
-														<div class="form-group">
-															<label for="exampleInputPassword1">Password</label> <input
-																name="password" type="password" class="form-control"
-																id="exampleInputPassword1" placeholder="Password">
-														</div>
-
-														<div class="form-group">
-															<label class="control-label col-sm-4">Default
-																Datepicker</label>
-															<div class="col-sm-6">
-																<input name="date" id="dp1" type="text" value="28-10-2013" size="16" class="form-control">
-															</div>
-														</div>
-														<button type="submit" class="btn btn-primary">Submit</button>
-													</form>
+						</section>
 
 
+						<!-- modal for add user start -->
+						<div aria-hidden="true" aria-labelledby="add_User" role="dialog"
+							tabindex="-1" id="add_User_Modal" class="modal fade">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button aria-hidden="true" data-dismiss="modal" class="close"
+											type="button">¡Á</button>
+										<h4 class="modal-title">User Insert Form</h4>
+									</div>
+									<div class="modal-body">
+
+										<form id="add_user_form" role="form" action="addUser.do"
+											method="post">
+											<div class="form-group">
+												<label for="exampleInputEmail1">Name</label> <input
+													name="name" class="form-control" id="exampleInputEmail1"
+													placeholder="Name">
+											</div>
+											<div class="form-group">
+												<label for="exampleInputEmail1">City</label> <input
+													name="city" class="form-control" id="exampleInputEmail1"
+													placeholder="City">
+											</div>
+											<div class="form-group">
+												<label for="exampleInputEmail1">Email address</label> <input
+													name="email" type="email" class="form-control"
+													id="exampleInputEmail1" placeholder="Email">
+											</div>
+											<div class="form-group">
+												<label class="control-label col-lg-2" for="inputSuccess">Role</label>
+												<div class="col-lg-10">
+													<select name="role" form="add_user_form"
+														class="form-control m-bot15">
+
+														<option>Manager</option>
+														<option>Stock Manager</option>
+														<option>Purchaser</option>
+														<option>Producer</option>
+														<option>Seller</option>
+													</select>
 												</div>
 											</div>
-										</div>
-									</div>
+											<div class="form-group">
+												<label for="exampleInputEmail1">Phone</label> <input
+													name="phone" type="tel" class="form-control"
+													id="exampleInputEmail1" placeholder="Phone Number">
+											</div>
+											<div class="form-group">
+												<label for="exampleInputPassword1">Password</label> <input
+													name="password" type="password" class="form-control"
+													id="exampleInputPassword1" placeholder="Password">
+											</div>
 
-									<!-- modal for add user end -->
-
-									<!-- modal for update user start -->
-									<div aria-hidden="true" aria-labelledby="update_User"
-										role="dialog" tabindex="-1" id="update_User_Modal5" name="update_User_Modal5"
-										class="modal fade">
-										<div class="modal-dialog">
-											<div class="modal-content">
-												<div class="modal-header">
-													<button aria-hidden="true" data-dismiss="modal"
-														class="close" type="button">¡Á</button>
-													<h4 class="modal-title">User Update Form</h4>
-												</div>
-												<div class="modal-body">
-
-													<form id="update_user_form" role="form">
-														<div class="form-group">
-															<label for="exampleInputEmail1">Name</label> <input
-																name="name" class="form-control" id="nameInput1"
-																placeholder="Name">
-														</div>
-
-														<div class="form-group">
-															<label for="exampleInputEmail1">City</label> <input
-																name="city" class="form-control" id="cityInput1"
-																placeholder="City">
-														</div>
-														<div class="form-group">
-															<label for="exampleInputEmail1">Email address</label> <input
-																name="email" type="email" class="form-control"
-																id="emailInput1" placeholder="Email">
-														</div>
-														<div class="form-group">
-															<label class="control-label col-lg-2" for="inputSuccess">Role</label>
-															<div class="col-lg-10">
-																<select onchange="this.form.submit()" name="role"
-																	form="update_user_form" class="form-control m-bot15">
-																	<option id="selInput1" selected="selected">1</option>
-																	<option id="selInput2">2</option>
-																	<option id="selInput3">3</option>
-																	<option id="selInput4">4</option>
-																	<option id="selInput5">5</option>
-																</select>
-															</div>
-														</div>
-														<div class="form-group">
-															<label for="exampleInputEmail1">Phone</label> <input
-																name="phone" type="tel" class="form-control"
-																id="phoneInput1" placeholder="Phone Number">
-														</div>
-														<div class="form-group">
-															<label for="exampleInputPassword1">Password</label> <input
-																name="password" class="form-control" id="passwordInput1"
-																placeholder="Password">
-														</div>
-
-														<div class="form-group">
-															<label class="control-label col-sm-4">Default
-																Datepicker</label>
-															<div class="col-sm-6">
-																<input name="date" id="dp1" type="text"
-																	value="28-10-2013" size="16" class="form-control">
-															</div>
-														</div>
-														<button type="submit" class="btn btn-primary">Submit</button>
-													</form>
-													<!-- modal for update user end -->
-
+											<div class="form-group">
+												<label class="control-label col-sm-4">Default
+													Datepicker</label>
+												<div class="col-sm-6">
+													<input name="date" id="dp1" type="text" value="28-10-2013"
+														size="16" class="form-control">
 												</div>
 											</div>
-										</div>
-									</div>
+											<button type="submit" class="btn btn-primary">Submit</button>
+										</form>
 
-							
+
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- modal for add user end -->
+
+						<!-- modal for update user start -->
+						<div aria-hidden="true" aria-labelledby="update_User"
+							role="dialog" tabindex="-1" id="update_User_Modal5"
+							name="update_User_Modal5" class="modal fade">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button aria-hidden="true" data-dismiss="modal" class="close"
+											type="button">¡Á</button>
+										<h4 class="modal-title">User Update Form</h4>
+									</div>
+									<div class="modal-body">
+
+										<form id="update_user_form" role="form">
+											<div class="form-group">
+												<label for="exampleInputEmail1">Name</label> <input
+													name="name" class="form-control" id="nameInput1"
+													placeholder="Name">
+											</div>
+
+											<div class="form-group">
+												<label for="exampleInputEmail1">City</label> <input
+													name="city" class="form-control" id="cityInput1"
+													placeholder="City">
+											</div>
+											<div class="form-group">
+												<label for="exampleInputEmail1">Email address</label> <input
+													name="email" type="email" class="form-control"
+													id="emailInput1" placeholder="Email">
+											</div>
+											<div class="form-group">
+												<label class="control-label col-lg-2" for="inputSuccess">Role</label>
+												<div class="col-lg-10">
+													<select onchange="this.form.submit()" name="role"
+														form="update_user_form" class="form-control m-bot15">
+														<option id="selInput1" selected="selected">1</option>
+														<option id="selInput2">2</option>
+														<option id="selInput3">3</option>
+														<option id="selInput4">4</option>
+														<option id="selInput5">5</option>
+													</select>
+												</div>
+											</div>
+											<div class="form-group">
+												<label for="exampleInputEmail1">Phone</label> <input
+													name="phone" type="tel" class="form-control"
+													id="phoneInput1" placeholder="Phone Number">
+											</div>
+											<div class="form-group">
+												<label for="exampleInputPassword1">Password</label> <input
+													name="password" class="form-control" id="passwordInput1"
+													placeholder="Password">
+											</div>
+
+											<div class="form-group">
+												<label class="control-label col-sm-4">Default
+													Datepicker</label>
+												<div class="col-sm-6">
+													<input name="date" id="dp1" type="text" value="28-10-2013"
+														size="16" class="form-control">
+												</div>
+											</div>
+											<button type="submit" class="btn btn-primary">Submit</button>
+										</form>
+										<!-- modal for update user end -->
+
+									</div>
+								</div>
+							</div>
+						</div>
+
+
 					</div>
 
 				</div>
@@ -549,7 +548,7 @@ function myFunction(obj) {
 	alert(obj.name);
 }
 </script>
- <script type = "text/javascript">
+	<script type="text/javascript">
  var guser = 0
  
 	 function click(user)
@@ -588,7 +587,7 @@ function myFunction(obj) {
     	});
 	     
 </script>
-    
+
 
 </body>
 

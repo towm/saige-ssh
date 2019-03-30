@@ -1,24 +1,24 @@
 <!doctype html>
 <html>
-	<head>
-		<title>Doughnut Chart</title>
-		<script src="../Chart.js"></script>
-		<meta name = "viewport" content = "initial-scale = 1, user-scalable = no">
-		<style>
-			canvas{
-				float: left;
-			}
-		</style>
-	</head>
-	<body>
-		<div style="width:600px;height:600px;">
-			<canvas id="doughnut" height="300" width="200"></canvas>
-			<canvas id="line" height="300" width="200"></canvas>
-			<canvas id="polarArea" height="300" width="200"></canvas>
-			<canvas id="bar" height="300" width="200"></canvas>
-			<canvas id="pie" height="300" width="200"></canvas>
-			<canvas id="radar" height="300" width="200"></canvas>
-		</div>
+<head>
+<title>Doughnut Chart</title>
+<script src="../Chart.js"></script>
+<meta name="viewport" content="initial-scale = 1, user-scalable = no">
+<style>
+canvas {
+	float: left;
+}
+</style>
+</head>
+<body>
+	<div style="width: 600px; height: 600px;">
+		<canvas id="doughnut" height="300" width="200"></canvas>
+		<canvas id="line" height="300" width="200"></canvas>
+		<canvas id="polarArea" height="300" width="200"></canvas>
+		<canvas id="bar" height="300" width="200"></canvas>
+		<canvas id="pie" height="300" width="200"></canvas>
+		<canvas id="radar" height="300" width="200"></canvas>
+	</div>
 
 
 	<script>
@@ -151,5 +151,5 @@
 	new Chart(document.getElementById("pie").getContext("2d")).Pie(pieData);
 	
 	</script>
-	</body>
+</body>
 </html>

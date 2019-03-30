@@ -1,59 +1,94 @@
 <!doctype html>
 <html>
-	<head>
-		<title>Chart.js Documentation</title>
-		<link href="styles.css" rel="stylesheet">
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-		<script src="prettify.js"></script>
-		<script src="Chart.js"></script>
-		<script type="text/javascript" src="//use.typekit.net/puc1imu.js"></script>
-		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-	</head>
-	<body>
+<head>
+<title>Chart.js Documentation</title>
+<link href="styles.css" rel="stylesheet">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="prettify.js"></script>
+<script src="Chart.js"></script>
+<script type="text/javascript" src="//use.typekit.net/puc1imu.js"></script>
+<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+</head>
+<body>
 	<div class="redBorder"></div>
 	<div class="greenBorder"></div>
 	<div class="yellowBorder"></div>
 	<div id="wrapper">
-		<nav>	
+		<nav>
 			<dl>
 			</dl>
 		</nav>
-		
+
 		<div id="contentWrapper">
 			<h1 id="mainHeader">Chart.js Documentation</h1>
-			<h2 id="introText">Everything you need to know to create great looking charts using Chart.js</h2>
+			<h2 id="introText">Everything you need to know to create great
+				looking charts using Chart.js</h2>
 			<article id="gettingStarted">
 				<h1>Getting started</h1>
 				<h2>Include Chart.js</h2>
-				<p>First we need to include the Chart.js library on the page. The library occupies a global variable of <code>Chart</code>.</p>
-				<pre data-type="html"><code>&lt;script src=&quot;Chart.js&quot;&gt;&lt;/script&gt;</code></pre>
+				<p>
+					First we need to include the Chart.js library on the page. The
+					library occupies a global variable of
+					<code>Chart</code>
+					.
+				</p>
+				<pre data-type="html">
+					<code>&lt;script src=&quot;Chart.js&quot;&gt;&lt;/script&gt;</code>
+				</pre>
 				<h2>Creating a chart</h2>
-				<p>To create a chart, we need to instantiate the Chart class. To do this, we need to pass in the 2d context of where we want to draw the chart. Here's an example.</p>
-				<pre data-type="html"><code>&lt;canvas id=&quot;myChart&quot; width=&quot;400&quot; height=&quot;400&quot;&gt;&lt;/canvas&gt;</code></pre>
-				<pre data-type="javascript"><code>//Get the context of the canvas element we want to select
+				<p>To create a chart, we need to instantiate the Chart class. To
+					do this, we need to pass in the 2d context of where we want to draw
+					the chart. Here's an example.</p>
+				<pre data-type="html">
+					<code>&lt;canvas id=&quot;myChart&quot; width=&quot;400&quot; height=&quot;400&quot;&gt;&lt;/canvas&gt;</code>
+				</pre>
+				<pre data-type="javascript">
+					<code>//Get the context of the canvas element we want to select
 var ctx = document.getElementById("myChart").getContext("2d");
-var myNewChart = new Chart(ctx).PolarArea(data);</code></pre>
-				<p>We can also get the context of our canvas with jQuery. To do this, we need to get the DOM node out of the jQuery collection, and call the <code>getContext("2d")</code> method on that.</p>
-				<pre data-type="javascript"><code>//Get context with jQuery - using jQuery's .get() method.
+var myNewChart = new Chart(ctx).PolarArea(data);</code>
+				</pre>
+				<p>
+					We can also get the context of our canvas with jQuery. To do this,
+					we need to get the DOM node out of the jQuery collection, and call
+					the
+					<code>getContext("2d")</code>
+					method on that.
+				</p>
+				<pre data-type="javascript">
+					<code>//Get context with jQuery - using jQuery's .get() method.
 var ctx = $("#myChart").get(0).getContext("2d");
 //This will get the first returned node in the jQuery collection.
-var myNewChart = new Chart(ctx);</code></pre>
-				<p>After we've instantiated the Chart class on the canvas we want to draw on, Chart.js will handle the scaling for retina displays.</p>
-				<p>With the Chart class set up, we can go on to create one of the charts Chart.js has available. In the example below, we would be drawing a Polar area chart.</p>
-				<pre data-type="javascript"><code>new Chart(ctx).PolarArea(data,options);</code></pre>
-				<p>We call a method of the name of the chart we want to create. We pass in the data for that chart type, and the options for that chart as parameters. Chart.js will merge the options you pass in with the default options for that chart type.</p>
-			</article>	
-			
-<article id="lineChart">
+var myNewChart = new Chart(ctx);</code>
+				</pre>
+				<p>After we've instantiated the Chart class on the canvas we
+					want to draw on, Chart.js will handle the scaling for retina
+					displays.</p>
+				<p>With the Chart class set up, we can go on to create one of
+					the charts Chart.js has available. In the example below, we would
+					be drawing a Polar area chart.</p>
+				<pre data-type="javascript">
+					<code>new Chart(ctx).PolarArea(data,options);</code>
+				</pre>
+				<p>We call a method of the name of the chart we want to create.
+					We pass in the data for that chart type, and the options for that
+					chart as parameters. Chart.js will merge the options you pass in
+					with the default options for that chart type.</p>
+			</article>
+
+			<article id="lineChart">
 				<h1>Line chart</h1>
 				<h2>Introduction</h2>
 				<p>A line chart is a way of plotting data points on a line.</p>
-				<p>Often, it is used to show trend data, and the comparison of two data sets.</p>
+				<p>Often, it is used to show trend data, and the comparison of
+					two data sets.</p>
 				<h2>Example usage</h2>
 				<canvas id="line" data-type="Line" width="600" height="400"></canvas>
-				<pre data-type="javascript"><code>new Chart(ctx).Line(data,options);</code></pre>
-				<h2>Data structure</h2>	
-				<pre data-type="javascript"><code data-for="line">var data = {
+				<pre data-type="javascript">
+					<code>new Chart(ctx).Line(data,options);</code>
+				</pre>
+				<h2>Data structure</h2>
+				<pre data-type="javascript">
+					<code data-for="line">var data = {
 	labels : ["January","February","March","April","May","June","July"],
 	datasets : [
 		{
@@ -71,12 +106,19 @@ var myNewChart = new Chart(ctx);</code></pre>
 			data : [28,48,40,19,96,27,100]
 		}
 	]
-}</code></pre>
-				<p>The line chart requires an array of labels for each of the data points. This is show on the X axis.</p>
-				<p>The data for line charts is broken up into an array of datasets. Each dataset has a colour for the fill, a colour for the line and colours for the points and strokes of the points. These colours are strings just like CSS. You can use RGBA, RGB, HEX or HSL notation.</p>
-				
+}</code>
+				</pre>
+				<p>The line chart requires an array of labels for each of the
+					data points. This is show on the X axis.</p>
+				<p>The data for line charts is broken up into an array of
+					datasets. Each dataset has a colour for the fill, a colour for the
+					line and colours for the points and strokes of the points. These
+					colours are strings just like CSS. You can use RGBA, RGB, HEX or
+					HSL notation.</p>
+
 				<h2>Chart options</h2>
-				<pre data-type="javascript"><code>Line.defaults = {
+				<pre data-type="javascript">
+					<code>Line.defaults = {
 				
 	//Boolean - If we show the scale above the chart data			
 	scaleOverlay : false,
@@ -158,19 +200,24 @@ var myNewChart = new Chart(ctx);</code></pre>
 	//Function - Fires when the animation is complete
 	onAnimationComplete : null
 	
-}</code></pre>
-			</article>	
-			
-<article id="barChart">
+}</code>
+				</pre>
+			</article>
+
+			<article id="barChart">
 				<h1>Bar chart</h1>
 				<h2>Introduction</h2>
 				<p>A bar chart is a way of showing data as bars.</p>
-				<p>It is sometimes used to show trend data, and the comparison of multiple data sets side by side.</p>
+				<p>It is sometimes used to show trend data, and the comparison
+					of multiple data sets side by side.</p>
 				<h2>Example usage</h2>
 				<canvas id="bar" data-type="Bar" width="600" height="400"></canvas>
-				<pre data-type="javascript"><code>new Chart(ctx).Bar(data,options);</code></pre>
-				<h2>Data structure</h2>	
-				<pre data-type="javascript"><code data-for="bar">var data = {
+				<pre data-type="javascript">
+					<code>new Chart(ctx).Bar(data,options);</code>
+				</pre>
+				<h2>Data structure</h2>
+				<pre data-type="javascript">
+					<code data-for="bar">var data = {
 	labels : ["January","February","March","April","May","June","July"],
 	datasets : [
 		{
@@ -184,12 +231,17 @@ var myNewChart = new Chart(ctx);</code></pre>
 			data : [28,48,40,19,96,27,100]
 		}
 	]
-}</code></pre>
-				<p>The bar chart has the a very similar data structure to the line chart, and has an array of datasets, each with colours and an array of data. Again, colours are in CSS format.</p>
-				<p>We have an array of labels too for display. In the example, we are showing the same data as the previous line chart example.</p>
-				
+}</code>
+				</pre>
+				<p>The bar chart has the a very similar data structure to the
+					line chart, and has an array of datasets, each with colours and an
+					array of data. Again, colours are in CSS format.</p>
+				<p>We have an array of labels too for display. In the example,
+					we are showing the same data as the previous line chart example.</p>
+
 				<h2>Chart options</h2>
-				<pre data-type="javascript"><code>Bar.defaults = {
+				<pre data-type="javascript">
+					<code>Bar.defaults = {
 				
 	//Boolean - If we show the scale above the chart data			
 	scaleOverlay : false,
@@ -262,19 +314,25 @@ var myNewChart = new Chart(ctx);</code></pre>
 	//Function - Fires when the animation is complete
 	onAnimationComplete : null
 	
-}</code></pre>
-			</article>						
-			
+}</code>
+				</pre>
+			</article>
+
 			<article id="radarChart">
 				<h1>Radar chart</h1>
 				<h2>Introduction</h2>
-				<p>A radar chart is a way of showing multiple data points and the variation between them.</p>
-				<p>They are often useful for comparing the points of two or more different data sets</p>
+				<p>A radar chart is a way of showing multiple data points and
+					the variation between them.</p>
+				<p>They are often useful for comparing the points of two or more
+					different data sets</p>
 				<h2>Example usage</h2>
 				<canvas id="radar" data-type="Radar" width="400" height="400"></canvas>
-				<pre data-type="javascript"><code>new Chart(ctx).Radar(data,options);</code></pre>
-				<h2>Data structure</h2>	
-				<pre data-type="javascript"><code data-for="radar">var data = {
+				<pre data-type="javascript">
+					<code>new Chart(ctx).Radar(data,options);</code>
+				</pre>
+				<h2>Data structure</h2>
+				<pre data-type="javascript">
+					<code data-for="radar">var data = {
 	labels : ["Eating","Drinking","Sleeping","Designing","Coding","Partying","Running"],
 	datasets : [
 		{
@@ -292,12 +350,21 @@ var myNewChart = new Chart(ctx);</code></pre>
 			data : [28,48,40,19,96,27,100]
 		}
 	]
-}</code></pre>
-				<p>For a radar chart, usually you will want to show a label on each point of the chart, so we include an array of strings that we show around each point in the chart. If you do not want this, you can either not include the array of labels, or choose to hide them in the chart options.</p>
-				<p>For the radar chart data, we have an array of datasets. Each of these is an object, with a fill colour, a stroke colour, a colour for the fill of each point, and a colour for the stroke of each point. We also have an array of data values.</p>
-				
+}</code>
+				</pre>
+				<p>For a radar chart, usually you will want to show a label on
+					each point of the chart, so we include an array of strings that we
+					show around each point in the chart. If you do not want this, you
+					can either not include the array of labels, or choose to hide them
+					in the chart options.</p>
+				<p>For the radar chart data, we have an array of datasets. Each
+					of these is an object, with a fill colour, a stroke colour, a
+					colour for the fill of each point, and a colour for the stroke of
+					each point. We also have an array of data values.</p>
+
 				<h2>Chart options</h2>
-				<pre data-type="javascript"><code>Radar.defaults = {
+				<pre data-type="javascript">
+					<code>Radar.defaults = {
 				
 	//Boolean - If we show the scale above the chart data			
 	scaleOverlay : false,
@@ -403,19 +470,28 @@ var myNewChart = new Chart(ctx);</code></pre>
 	//Function - Fires when the animation is complete
 	onAnimationComplete : null
 	
-}</code></pre>
-			</article>			
-			
+}</code>
+				</pre>
+			</article>
+
 			<article id="polarAreaChart">
 				<h1>Polar area chart</h1>
 				<h2>Introduction</h2>
-				<p>Polar area charts are similar to pie charts, but each segment has the same angle - the radius of the segment differs depending on the value.</p>
-				<p>This type of chart is often useful when we want to show a comparison data similar to a pie chart, but also show a scale of values for context.</p>
+				<p>Polar area charts are similar to pie charts, but each segment
+					has the same angle - the radius of the segment differs depending on
+					the value.</p>
+				<p>This type of chart is often useful when we want to show a
+					comparison data similar to a pie chart, but also show a scale of
+					values for context.</p>
 				<h2>Example usage</h2>
-				<canvas id="polarArea" data-type="PolarArea" width="300" height="300"></canvas>
-				<pre data-type="javascript"><code>new Chart(ctx).PolarArea(data,options);</code></pre>
+				<canvas id="polarArea" data-type="PolarArea" width="300"
+					height="300"></canvas>
+				<pre data-type="javascript">
+					<code>new Chart(ctx).PolarArea(data,options);</code>
+				</pre>
 				<h2>Data structure</h2>
-				<pre data-type="javascript"><code data-for="polarArea">var data = [
+				<pre data-type="javascript">
+					<code data-for="polarArea">var data = [
 	{
 		value : 30,
 		color: "#D97041"
@@ -440,11 +516,24 @@ var myNewChart = new Chart(ctx);</code></pre>
 		value : 8,
 		color: "#584A5E"
 	}
-]</code></pre>
-				<p>As you can see, for the chart data you pass in an array of objects, with a value and a colour. The <code>value</code> attribute should be a number, while the <code>color</code> attribute should be a string. Similar to CSS, for this string you can use HEX notation, RGB, RGBA or HSL.</p>
+]</code>
+				</pre>
+				<p>
+					As you can see, for the chart data you pass in an array of objects,
+					with a value and a colour. The
+					<code>value</code>
+					attribute should be a number, while the
+					<code>color</code>
+					attribute should be a string. Similar to CSS, for this string you
+					can use HEX notation, RGB, RGBA or HSL.
+				</p>
 				<h2>Chart options</h2>
-				<p>These are the default chart options. By passing in an object with any of these attributes, Chart.js will merge these objects and the graph accordingly. Explanations of each option are commented in the code below.</p>
-				<pre data-type="javascript"><code>PolarArea.defaults = {
+				<p>These are the default chart options. By passing in an object
+					with any of these attributes, Chart.js will merge these objects and
+					the graph accordingly. Explanations of each option are commented in
+					the code below.</p>
+				<pre data-type="javascript">
+					<code>PolarArea.defaults = {
 				
 	//Boolean - Whether we show the scale above or below the chart segments
 	scaleOverlay : true,
@@ -525,18 +614,25 @@ var myNewChart = new Chart(ctx);</code></pre>
 
 	//Function - This will fire when the animation of the chart is complete.
 	onAnimationComplete : null
-}</code></pre>
+}</code>
+				</pre>
 			</article>
 			<article id="pieChart">
 				<h1>Pie chart</h1>
 				<h2>Introduction</h2>
-				<p>Pie charts are probably the most commonly used chart there are. They are divided into segments, the arc of each segment shows a the proportional value of each piece of data.</p>
-				<p>They are excellent at showing the relational proportions between data.</p>
+				<p>Pie charts are probably the most commonly used chart there
+					are. They are divided into segments, the arc of each segment shows
+					a the proportional value of each piece of data.</p>
+				<p>They are excellent at showing the relational proportions
+					between data.</p>
 				<h2>Example usage</h2>
 				<canvas id="pie" data-type="Pie" width="400" height="400"></canvas>
-				<pre data-type="javascript"><code>new Chart(ctx).Pie(data,options);</code></pre>
+				<pre data-type="javascript">
+					<code>new Chart(ctx).Pie(data,options);</code>
+				</pre>
 				<h2>Data structure</h2>
-				<pre data-type="javascript"><code data-for="pie">var data = [
+				<pre data-type="javascript">
+					<code data-for="pie">var data = [
 	{
 		value: 30,
 		color:"#F38630"
@@ -549,11 +645,26 @@ var myNewChart = new Chart(ctx);</code></pre>
 		value : 100,
 		color : "#69D2E7"
 	}			
-]</code></pre>
-				<p>For a pie chart, you must pass in an array of objects with a <code>value</code> and a <code>color</code> property. The <code>value</code> attribute should be a number, Chart.js will total all of the numbers and calculate the relative proportion of each. The <code>color</code> attribute should be a string. Similar to CSS, for this string you can use HEX notation, RGB, RGBA or HSL.</p>
+]</code>
+				</pre>
+				<p>
+					For a pie chart, you must pass in an array of objects with a
+					<code>value</code>
+					and a
+					<code>color</code>
+					property. The
+					<code>value</code>
+					attribute should be a number, Chart.js will total all of the
+					numbers and calculate the relative proportion of each. The
+					<code>color</code>
+					attribute should be a string. Similar to CSS, for this string you
+					can use HEX notation, RGB, RGBA or HSL.
+				</p>
 				<h2>Chart options</h2>
-				<p>These are the default options for the Pie chart. Pass in an object with any of these attributes to override them.
-				<pre data-type="javascript"><code>Pie.defaults = {
+				<p>These are the default options for the Pie chart. Pass in an
+					object with any of these attributes to override them.
+				<pre data-type="javascript">
+					<code>Pie.defaults = {
 	//Boolean - Whether we should show a stroke on each segment
 	segmentShowStroke : true,
 	
@@ -580,18 +691,25 @@ var myNewChart = new Chart(ctx);</code></pre>
 	
 	//Function - Will fire on animation completion.
 	onAnimationComplete : null
-}</code></pre>
+}</code>
+				</pre>
 			</article>
 			<article id="doughnutChart">
 				<h1>Doughnut chart</h1>
 				<h2>Introduction</h2>
-				<p>Doughnut charts are similar to pie charts, however they have the centre cut out, and are therefore shaped more like a doughnut than a pie!</p>
-				<p>They are aso excellent at showing the relational proportions between data.</p>
+				<p>Doughnut charts are similar to pie charts, however they have
+					the centre cut out, and are therefore shaped more like a doughnut
+					than a pie!</p>
+				<p>They are aso excellent at showing the relational proportions
+					between data.</p>
 				<h2>Example usage</h2>
 				<canvas id="doughnut" data-type="Doughnut" width="400" height="400"></canvas>
-				<pre data-type="javascript"><code>new Chart(ctx).Doughnut(data,options);</code></pre>
+				<pre data-type="javascript">
+					<code>new Chart(ctx).Doughnut(data,options);</code>
+				</pre>
 				<h2>Data structure</h2>
-				<pre data-type="javascript"><code data-for="doughnut">var data = [
+				<pre data-type="javascript">
+					<code data-for="doughnut">var data = [
 	{
 		value: 30,
 		color:"#F7464A"
@@ -613,11 +731,26 @@ var myNewChart = new Chart(ctx);</code></pre>
 		color : "#4D5360"
 	}
 
-]</code></pre>
-				<p>For a doughnut chart, you must pass in an array of objects with a <code>value</code> and a <code>color</code> property. The <code>value</code> attribute should be a number, Chart.js will total all of the numbers and calculate the relative proportion of each. The <code>color</code> attribute should be a string. Similar to CSS, for this string you can use HEX notation, RGB, RGBA or HSL.</p>
+]</code>
+				</pre>
+				<p>
+					For a doughnut chart, you must pass in an array of objects with a
+					<code>value</code>
+					and a
+					<code>color</code>
+					property. The
+					<code>value</code>
+					attribute should be a number, Chart.js will total all of the
+					numbers and calculate the relative proportion of each. The
+					<code>color</code>
+					attribute should be a string. Similar to CSS, for this string you
+					can use HEX notation, RGB, RGBA or HSL.
+				</p>
 				<h2>Chart options</h2>
-				<p>These are the default options for the doughnut chart. Pass in an object with any of these attributes to override them.
-				<pre data-type="javascript"><code>Doughnut.defaults = {
+				<p>These are the default options for the doughnut chart. Pass in
+					an object with any of these attributes to override them.
+				<pre data-type="javascript">
+					<code>Doughnut.defaults = {
 	//Boolean - Whether we should show a stroke on each segment
 	segmentShowStroke : true,
 	
@@ -647,40 +780,97 @@ var myNewChart = new Chart(ctx);</code></pre>
 	
 	//Function - Will fire on animation completion.
 	onAnimationComplete : null
-}</code></pre>
+}</code>
+				</pre>
 			</article>
 			<article id="generalIssues">
 				<h1>General issues</h1>
 				<h2>Chart interactivity</h2>
-				<p>If you are looking to add interaction as a layer to charts, Chart.js is <strong>not the library for you</strong>. A better option would be using SVG, as this will let you attach event listeners to any of the elements in the chart, as these are all DOM nodes.</p>
-				<p>Chart.js uses the canvas element, which is a single DOM node, similar in characteristics to a static image. This does mean that it has a wider scope for compatibility, and less memory implications than SVG based charting solutions. The canvas element also allows for saving the contents as a base 64 string, allowing saving the chart as an image. </p>
-				<p>In SVG, all of the lines, data points and everything you see is a DOM node. As a result of this, complex charts with a lot of intricacies, or many charts on the page will often see dips in performance when scrolling or generating the chart, especially when there are multiple on the page. SVG also has relatively poor mobile support, with Android not supporting SVG at all before version 3.0, and iOS before 5.0. (<a href="http://caniuse.com/svg-html5" target="_blank">caniuse.com/svg-html5</a>).</p>
+				<p>
+					If you are looking to add interaction as a layer to charts,
+					Chart.js is <strong>not the library for you</strong>. A better
+					option would be using SVG, as this will let you attach event
+					listeners to any of the elements in the chart, as these are all DOM
+					nodes.
+				</p>
+				<p>Chart.js uses the canvas element, which is a single DOM node,
+					similar in characteristics to a static image. This does mean that
+					it has a wider scope for compatibility, and less memory
+					implications than SVG based charting solutions. The canvas element
+					also allows for saving the contents as a base 64 string, allowing
+					saving the chart as an image.</p>
+				<p>
+					In SVG, all of the lines, data points and everything you see is a
+					DOM node. As a result of this, complex charts with a lot of
+					intricacies, or many charts on the page will often see dips in
+					performance when scrolling or generating the chart, especially when
+					there are multiple on the page. SVG also has relatively poor mobile
+					support, with Android not supporting SVG at all before version 3.0,
+					and iOS before 5.0. (<a href="http://caniuse.com/svg-html5"
+						target="_blank">caniuse.com/svg-html5</a>).
+				</p>
 				<h2>Browser support</h2>
-				<p>Browser support for the canvas element is available in all modern & major mobile browsers (<a href="http://caniuse.com/canvas" target="_blank">caniuse.com/canvas</a>).</p>
-				<p>For IE8 & below, I would recommend using the polyfill ExplorerCanvas - available at <a href="https://code.google.com/p/explorercanvas/" target="_blank">https://code.google.com/p/explorercanvas/</a>. It falls back to Internet explorer's format VML when canvas support is not available. Example use:</p>
-				<pre data-type="html"><code>&lt;head&gt;
+				<p>
+					Browser support for the canvas element is available in all modern &
+					major mobile browsers (<a href="http://caniuse.com/canvas"
+						target="_blank">caniuse.com/canvas</a>).
+				</p>
+				<p>
+					For IE8 & below, I would recommend using the polyfill
+					ExplorerCanvas - available at <a
+						href="https://code.google.com/p/explorercanvas/" target="_blank">https://code.google.com/p/explorercanvas/</a>.
+					It falls back to Internet explorer's format VML when canvas support
+					is not available. Example use:
+				</p>
+				<pre data-type="html">
+					<code>&lt;head&gt;
 	&lt;!--[if lte IE 8]&gt;
 		&lt;script src=&quot;excanvas.js&quot;&gt;&lt;/script&gt;
 	&lt;![endif]--&gt;
-&lt;/head&gt;</code></pre>
-				<p>Usually I would recommend feature detection to choose whether or not to load a polyfill, rather than IE conditional comments, however in this case, VML is a Microsoft proprietary format, so it will only work in IE.</p>
-				<p>Some important points to note in my experience using ExplorerCanvas as a fallback.</p>
+&lt;/head&gt;</code>
+				</pre>
+				<p>Usually I would recommend feature detection to choose whether
+					or not to load a polyfill, rather than IE conditional comments,
+					however in this case, VML is a Microsoft proprietary format, so it
+					will only work in IE.</p>
+				<p>Some important points to note in my experience using
+					ExplorerCanvas as a fallback.</p>
 				<ul>
-					<li>Initialise charts on load rather than DOMContentReady when using the library, as sometimes a race condition will occur, and it will result in an error when trying to get the 2d context of a canvas.</li>
-					<li>New VML DOM elements are being created for each animation frame and there is no hardware acceleration. As a result animation is usually slow and jerky, with flashing text. It is a good idea to dynamically turn off animation based on canvas support. I recommend using the excellent <a href="http://modernizr.com/" targer="_blank">Modernizr</a> to do this.</li>
-					<li>When declaring fonts, the library explorercanvas requires the font name to be in single quotes inside the string. For example, instead of your scaleFontFamily property being simply "Arial", explorercanvas support, use "'Arial'" instead. Chart.js does this for default values.</li>
-					
+					<li>Initialise charts on load rather than DOMContentReady when
+						using the library, as sometimes a race condition will occur, and
+						it will result in an error when trying to get the 2d context of a
+						canvas.</li>
+					<li>New VML DOM elements are being created for each animation
+						frame and there is no hardware acceleration. As a result animation
+						is usually slow and jerky, with flashing text. It is a good idea
+						to dynamically turn off animation based on canvas support. I
+						recommend using the excellent <a href="http://modernizr.com/"
+						targer="_blank">Modernizr</a> to do this.
+					</li>
+					<li>When declaring fonts, the library explorercanvas requires
+						the font name to be in single quotes inside the string. For
+						example, instead of your scaleFontFamily property being simply
+						"Arial", explorercanvas support, use "'Arial'" instead. Chart.js
+						does this for default values.</li>
+
 				</ul>
 				<h2>Bugs &amp; issues</h2>
-				<p>Please report these on the Github page - at <a href="https://github.com/nnnick/Chart.js" target="_blank">github.com/nnnick/Chart.js</a>.</p>
+				<p>
+					Please report these on the Github page - at <a
+						href="https://github.com/nnnick/Chart.js" target="_blank">github.com/nnnick/Chart.js</a>.
+				</p>
 				<p>New contributions to the library are welcome.</p>
 				<h2>License</h2>
-				<p>Chart.js is open source and available under the <a href="http://opensource.org/licenses/MIT" target="_blank">MIT license</a>.</p>
+				<p>
+					Chart.js is open source and available under the <a
+						href="http://opensource.org/licenses/MIT" target="_blank">MIT
+						license</a>.
+				</p>
 			</article>
 		</div>
 	</div>
-	</body>
-	<script>
+</body>
+<script>
 	$(document).ready(function(){
 	
 		var $nav = $("nav dl");
@@ -750,7 +940,7 @@ var myNewChart = new Chart(ctx);</code></pre>
 		} 
 	});
 	</script>
-	<script type="text/javascript">
+<script type="text/javascript">
 	
 	  var _gaq = _gaq || [];
 	  _gaq.push(['_setAccount', 'UA-28909194-3']);

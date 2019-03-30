@@ -1,78 +1,89 @@
-<?xml version="1.0" encoding="UTF-8"?>  
-<beans xmlns="http://www.springframework.org/schema/beans"  
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jee="http://www.springframework.org/schema/jee"  
-    xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context" 
-    xmlns:aop="http://www.springframework.org/schema/aop" 
-    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd 
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd 
     http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd 
     http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.2.xsd 
    	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd
-    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd"  
-    default-lazy-init="true">  
-  
-   <!-- 配置数据源 -->  
-    <context:property-placeholder location="classpath:db.properties"/>
-   <!-- 配置DataSource -->  
-    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">  
-        <property name="user" value="${jdbc.user}"></property>  
-        <property name="password" value="${jdbc.password}"></property>  
-        <property name="driverClass" value="${jdbc.driverClass}"></property>  
-        <property name="jdbcUrl" value="${jdbc.jdbcUrl}"></property>  
-        <property name="minPoolSize" value="${jdbc.minPoolSize}" />
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd"
+	default-lazy-init="true">
+
+	<!-- 配置数据源 -->
+	<context:property-placeholder
+		location="classpath:db.properties" />
+	<!-- 配置DataSource -->
+	<bean id="dataSource"
+		class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<property name="user" value="${jdbc.user}"></property>
+		<property name="password" value="${jdbc.password}"></property>
+		<property name="driverClass" value="${jdbc.driverClass}"></property>
+		<property name="jdbcUrl" value="${jdbc.jdbcUrl}"></property>
+		<property name="minPoolSize" value="${jdbc.minPoolSize}" />
 		<property name="maxPoolSize" value="${jdbc.maxPoolSize}" />
-		<property name="initialPoolSize" value="${jdbc.initialPoolSize}" />
-		
-    </bean>  
-      
-    <!-- 配置SessionFactory -->  
-    <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">  
-        <!-- 配置数据源属性 -->  
-        
-        <property name="dataSource" ref="dataSource"></property>  
-        <!-- 配置扫描的实体包(pojo) -->  
-        <!-- 忽略了注释中的@Column中的name,UserNameTable,就会被解析为user_name_table -->
-        <property name="namingStrategy">  
-            <bean class="org.hibernate.cfg.ImprovedNamingStrategy"></bean>  
-        </property>
-    	 <!-- 可以加多个包，需要hibenate映射的类的包 -->
-        <property name="packagesToScan" value="com.lyn.model"></property>  
-        
-        <!-- 配置Hibernate 的常用属性 -->  
-        <property name="hibernateProperties">  
-           
-            <props>  
-            <!-- 数据库的方言 -->  
-            
-                <prop key="hibernate.dialect">${hibernate.dialect}</prop>  
-                <!-- 显示sql语句 -->
-                <prop key="hibernate.show_sql">${hibernate.show_sql}</prop>  
-                <prop key="hibernate.format_sql">${hibernate.format_sql}</prop>  
-                <!-- 自动生成表 -->
-                <prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddlAuto}</prop> 
-            </props>  
-        </property>  
-    </bean>  
-     
-    <!-- 配置Hibernate 的事物管理器 -->  
-    <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">  
-        <property name="sessionFactory" ref="sessionFactory"></property>  
-       
-    </bean>
-   
-    <!-- 事务的传播特性 -->
-    <aop:config>  
-        <aop:advisor pointcut="execution(* com.lyn.service.*.*(..))" advice-ref="txAdvice" />  
+		<property name="initialPoolSize"
+			value="${jdbc.initialPoolSize}" />
+
+	</bean>
+
+	<!-- 配置SessionFactory -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<!-- 配置数据源属性 -->
+
+		<property name="dataSource" ref="dataSource"></property>
+		<!-- 配置扫描的实体包(pojo) -->
+		<!-- 忽略了注释中的@Column中的name,UserNameTable,就会被解析为user_name_table -->
+		<property name="namingStrategy">
+			<bean class="org.hibernate.cfg.ImprovedNamingStrategy"></bean>
+		</property>
+		<!-- 可以加多个包，需要hibenate映射的类的包 -->
+		<property name="packagesToScan" value="com.lyn.model"></property>
+
+		<!-- 配置Hibernate 的常用属性 -->
+		<property name="hibernateProperties">
+
+			<props>
+				<!-- 数据库的方言 -->
+
+				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
+				<!-- 显示sql语句 -->
+				<prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+				<prop key="hibernate.format_sql">${hibernate.format_sql}</prop>
+				<!-- 自动生成表 -->
+				<prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddlAuto}</prop>
+			</props>
+		</property>
+	</bean>
+
+	<!-- 配置Hibernate 的事物管理器 -->
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+
+	</bean>
+
+	<!-- 事务的传播特性 -->
+	<aop:config>
+		<aop:advisor
+			pointcut="execution(* com.lyn.service.*.*(..))" advice-ref="txAdvice" />
 	</aop:config>
-	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+	<tx:advice id="txAdvice"
+		transaction-manager="transactionManager">
 		<tx:attributes>
 			<tx:method name="save*" propagation="REQUIRED" />
 			<tx:method name="add*" propagation="REQUIRED" />
-			<tx:method name="find*" read-only="true" propagation="REQUIRED" />
-			<tx:method name="get*" read-only="true" propagation="REQUIRED" />
+			<tx:method name="find*" read-only="true"
+				propagation="REQUIRED" />
+			<tx:method name="get*" read-only="true"
+				propagation="REQUIRED" />
 			<tx:method name="update*" propagation="REQUIRED" />
 			<tx:method name="delete*" propagation="REQUIRED" />
 			<tx:method name="del*" propagation="REQUIRED" />
-			<tx:method name="*"  read-only="true" />
+			<tx:method name="*" read-only="true" />
 		</tx:attributes>
 	</tx:advice>
 </beans> 
